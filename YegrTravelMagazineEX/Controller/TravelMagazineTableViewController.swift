@@ -9,10 +9,11 @@ import UIKit
 import Kingfisher
 
 class TravelMagazineTableViewController: UITableViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.rowHeight = 470
+        tableView.rowHeight = 540
         title = "YEGR TRAVEL"
     }
     
@@ -28,13 +29,13 @@ class TravelMagazineTableViewController: UITableViewController {
             cell.setPosterImage(imageURL: url)
             cell.posterImageView.kf.indicatorType = .activity
             cell.posterImageView.kf.setImage(with: url,
-                                  options: [.transition(.fade(2)), .forceTransition, .keepCurrentImageWhileLoading])
+                                  options: [.transition(.fade(1)), .forceTransition, .keepCurrentImageWhileLoading])
         }
         cell.posterImageView.layer.cornerRadius = 10
         cell.posterImageView.contentMode = .scaleAspectFill
         
         cell.titleLabel.text = magazineInfo.title
-        cell.titleLabel.textColor = .black
+        cell.titleLabel.textColor = .label
         cell.titleLabel.textAlignment = .left
         cell.titleLabel.numberOfLines = 0
         cell.titleLabel.font = .boldSystemFont(ofSize: 22)
@@ -70,7 +71,7 @@ class TravelMagazineTableViewController: UITableViewController {
     
     func stringToDate(_ date: String) -> Date? {
         let dateFormat = DateFormatter()
-        dateFormat.dateFormat = "yyMMdd" // 240101
+        dateFormat.dateFormat = "yyMMdd"
         return dateFormat.date(from: date)
     }
 }

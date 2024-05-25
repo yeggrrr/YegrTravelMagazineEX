@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 import MarqueeLabel
-
+// 한식, 카페, 중식, 분식, 일식, 경양식, 양식 -> 검색
 class SearchRestaurantTableViewController: UITableViewController {
     @IBOutlet var searchTextField: UITextField!
     @IBOutlet var searchButton: UIButton!
@@ -18,6 +18,7 @@ class SearchRestaurantTableViewController: UITableViewController {
         
         title = "Search"
         tableView.rowHeight = 180
+        tableView.keyboardDismissMode = .onDrag
         
         textfieldUI()
     }
@@ -27,7 +28,7 @@ class SearchRestaurantTableViewController: UITableViewController {
             string: "검색어를 입력해주세요.",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.darkGray])
         searchTextField.keyboardType = .default
-        searchTextField.textColor = .black
+        searchTextField.textColor = .label
         searchTextField.tintColor = .lightGray
         searchTextField.textAlignment = .left
         searchTextField.keyboardAppearance = .light
@@ -54,12 +55,13 @@ class SearchRestaurantTableViewController: UITableViewController {
             cell.setPosterImage(imageURL: url)
             cell.posterImageView.kf.indicatorType = .activity
             cell.posterImageView.kf.setImage(with: url,
-                                             options: [.transition(.fade(2)), .forceTransition, .keepCurrentImageWhileLoading])}
+                                             options: [.transition(.fade(0.1)), .forceTransition, .keepCurrentImageWhileLoading])
+        }
         cell.posterImageView.contentMode = .scaleAspectFill
         cell.posterImageView.layer.cornerRadius = 10
         
         cell.titleLabel.text = restaurantInfo.name
-        cell.titleLabel.textColor = .black
+        cell.titleLabel.textColor = .label
         cell.titleLabel.textAlignment = .left
         cell.titleLabel.numberOfLines = 0
         cell.titleLabel.font = .boldSystemFont(ofSize: 22)
@@ -82,6 +84,22 @@ class SearchRestaurantTableViewController: UITableViewController {
         cell.priceLabel.numberOfLines = 0
         cell.priceLabel.font = .boldSystemFont(ofSize: 16)
         
+        let heartImageName = RestaurantList.shared.restaurantArray[indexPath.row].like ? "heart.fill" : "heart"
+        let heartImage = UIImage(systemName: heartImageName)
+        cell.likeButton.setImage(heartImage, for: .normal)
+        cell.likeButton.tintColor = .red
+        cell.likeButton.tag = indexPath.row
+        cell.likeButton.addTarget(self, action: #selector(likeButtonClicked), for: .touchUpInside)
+        
         return cell
+    }
+    
+    @objc func likeButtonClicked(sender: UIButton) {
+        RestaurantList.shared.restaurantArray[sender.tag].like.toggle()
+        tableView.reloadRows(at: [IndexPath(row: sender.tag, section: 0)], with: .fade)
+    }
+    
+    @IBAction func searchButtonClicked(_ sender: UIButton) {
+        view.endEditing(true)
     }
 }

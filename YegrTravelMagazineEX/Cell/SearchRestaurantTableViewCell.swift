@@ -15,6 +15,7 @@ class SearchRestaurantTableViewCell: UITableViewCell {
     @IBOutlet var addressLabel: UILabel!
     @IBOutlet var phoneNumberLabel: UILabel!
     @IBOutlet var priceLabel: UILabel!
+    @IBOutlet var likeButton: UIButton!
     
     func setPosterImage(imageURL: URL) {
         DispatchQueue.global().async { [ weak self ] in
