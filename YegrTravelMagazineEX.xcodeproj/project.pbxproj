@@ -15,10 +15,10 @@
 		68920A5D2C01BB6B00833D35 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 68920A5C2C01BB6B00833D35 /* Base */; };
 		68920A662C01BC7200833D35 /* Magazine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68920A652C01BC7200833D35 /* Magazine.swift */; };
 		68920A682C01BF6E00833D35 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68920A672C01BF6E00833D35 /* Restaurant.swift */; };
-		68920A6B2C01C01100833D35 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 68920A6A2C01C01100833D35 /* Kingfisher */; };
 		68920A6E2C01C0C000833D35 /* TravelMagazine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68920A6D2C01C0C000833D35 /* TravelMagazine.storyboard */; };
 		68920A712C01C11300833D35 /* TravelMagazineTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68920A702C01C11300833D35 /* TravelMagazineTableViewController.swift */; };
 		68920A742C01C17100833D35 /* TravelMagazineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68920A732C01C17100833D35 /* TravelMagazineTableViewCell.swift */; };
+		68920A782C01D74400833D35 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 68920A772C01D74400833D35 /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,7 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				68920A6B2C01C01100833D35 /* Kingfisher in Frameworks */,
+				68920A782C01D74400833D35 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,7 +133,7 @@
 			);
 			name = YegrTravelMagazineEX;
 			packageProductDependencies = (
-				68920A6A2C01C01100833D35 /* Kingfisher */,
+				68920A772C01D74400833D35 /* Kingfisher */,
 			);
 			productName = YegrTravelMagazineEX;
 			productReference = 68920A4D2C01BB6A00833D35 /* YegrTravelMagazineEX.app */;
@@ -434,7 +434,7 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		68920A6A2C01C01100833D35 /* Kingfisher */ = {
+		68920A772C01D74400833D35 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 68920A692C01C01100833D35 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
