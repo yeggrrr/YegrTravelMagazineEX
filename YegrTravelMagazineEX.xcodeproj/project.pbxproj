@@ -19,6 +19,8 @@
 		68920A712C01C11300833D35 /* TravelMagazineTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68920A702C01C11300833D35 /* TravelMagazineTableViewController.swift */; };
 		68920A742C01C17100833D35 /* TravelMagazineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68920A732C01C17100833D35 /* TravelMagazineTableViewCell.swift */; };
 		68920A782C01D74400833D35 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 68920A772C01D74400833D35 /* Kingfisher */; };
+		68920A7A2C01E91C00833D35 /* SearchRestaurantTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68920A792C01E91C00833D35 /* SearchRestaurantTableViewController.swift */; };
+		68920A7C2C01E95C00833D35 /* SearchRestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68920A7B2C01E95C00833D35 /* SearchRestaurantTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		68920A6D2C01C0C000833D35 /* TravelMagazine.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TravelMagazine.storyboard; sourceTree = "<group>"; };
 		68920A702C01C11300833D35 /* TravelMagazineTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelMagazineTableViewController.swift; sourceTree = "<group>"; };
 		68920A732C01C17100833D35 /* TravelMagazineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelMagazineTableViewCell.swift; sourceTree = "<group>"; };
+		68920A792C01E91C00833D35 /* SearchRestaurantTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRestaurantTableViewController.swift; sourceTree = "<group>"; };
+		68920A7B2C01E95C00833D35 /* SearchRestaurantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRestaurantTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				68920A702C01C11300833D35 /* TravelMagazineTableViewController.swift */,
+				68920A792C01E91C00833D35 /* SearchRestaurantTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -112,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				68920A732C01C17100833D35 /* TravelMagazineTableViewCell.swift */,
+				68920A7B2C01E95C00833D35 /* SearchRestaurantTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -196,8 +202,10 @@
 			files = (
 				68920A682C01BF6E00833D35 /* Restaurant.swift in Sources */,
 				68920A552C01BB6A00833D35 /* ViewController.swift in Sources */,
+				68920A7A2C01E91C00833D35 /* SearchRestaurantTableViewController.swift in Sources */,
 				68920A662C01BC7200833D35 /* Magazine.swift in Sources */,
 				68920A512C01BB6A00833D35 /* AppDelegate.swift in Sources */,
+				68920A7C2C01E95C00833D35 /* SearchRestaurantTableViewCell.swift in Sources */,
 				68920A532C01BB6A00833D35 /* SceneDelegate.swift in Sources */,
 				68920A712C01C11300833D35 /* TravelMagazineTableViewController.swift in Sources */,
 				68920A742C01C17100833D35 /* TravelMagazineTableViewCell.swift in Sources */,

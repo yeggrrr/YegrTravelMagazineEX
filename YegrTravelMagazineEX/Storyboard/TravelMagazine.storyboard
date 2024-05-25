@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GQ4-xn-cOD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Xy6-wh-2on">
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -94,28 +95,108 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VYp-et-1bR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1314.9532710280373" y="57.019438444924411"/>
+            <point key="canvasLocation" x="4552" y="-702"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="0uV-hX-jaX">
+        <!--TRAVEL-->
+        <scene sceneID="Hhz-LP-ztG">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GQ4-xn-cOD" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="661-Vk-evW" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="TRAVEL" image="airplane" catalog="system" selectedImage="airplane" id="dl2-0b-CuC"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rmR-La-XK4">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9rx-nW-gcd">
                         <rect key="frame" x="0.0" y="47" width="428" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="ccs-pG-wcb" kind="relationship" relationship="rootViewController" id="cLF-SP-0cd"/>
+                        <segue destination="ccs-pG-wcb" kind="relationship" relationship="rootViewController" id="ft4-Qt-pgu"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hq1-16-3Y6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pn9-CF-Gjs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="394.6564885496183" y="57.74647887323944"/>
+            <point key="canvasLocation" x="3785" y="-702"/>
+        </scene>
+        <!--Search Restaurant Table View Controller-->
+        <scene sceneID="Hiq-gq-b9y">
+            <objects>
+                <tableViewController id="6DZ-Xk-kAH" customClass="SearchRestaurantTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="eaf-um-6Ba">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchRestaurantTableViewCell" rowHeight="130" id="wKx-aq-6sg" customClass="SearchRestaurantTableViewCell">
+                                <rect key="frame" x="0.0" y="50" width="428" height="130"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wKx-aq-6sg" id="Pit-fU-QIV">
+                                    <rect key="frame" x="0.0" y="0.0" width="428" height="130"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="6DZ-Xk-kAH" id="PiH-nT-QWr"/>
+                            <outlet property="delegate" destination="6DZ-Xk-kAH" id="Ax1-ra-oeR"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="WIs-ff-TMm"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="km0-9i-33V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4551.8691588785041" y="-32.397408207343418"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="PVJ-8Z-GUK">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Xy6-wh-2on" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ACl-Pn-IBa">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="1" green="0.6383601002" blue="0.74061062320000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="selectedImageTintColor" red="1" green="0.6383601002" blue="0.74061062320000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="1" green="0.6383601002" blue="0.74061062320000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
+                                <color key="value" red="1" green="0.6383601002" blue="0.74061062320000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBar>
+                    <connections>
+                        <segue destination="661-Vk-evW" kind="relationship" relationship="viewControllers" id="dJb-xx-kVp"/>
+                        <segue destination="DdS-dM-Ssh" kind="relationship" relationship="viewControllers" id="ZRa-4P-303"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mvw-y7-Mz4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3026.6355140186915" y="-501.51187904967605"/>
+        </scene>
+        <!--Restaurant-->
+        <scene sceneID="ui1-dv-WDk">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DdS-dM-Ssh" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Restaurant" id="kHe-j5-M4W">
+                        <imageReference key="image" image="fork.knife" catalog="system"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oZt-vw-dvz">
+                        <rect key="frame" x="0.0" y="47" width="428" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="6DZ-Xk-kAH" kind="relationship" relationship="rootViewController" id="dAI-cN-13A"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wm5-ax-dsG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3783.6448598130837" y="-32.397408207343418"/>
         </scene>
     </scenes>
     <resources>
+        <image name="airplane" catalog="system" width="128" height="115"/>
+        <image name="fork.knife" catalog="system" width="94" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

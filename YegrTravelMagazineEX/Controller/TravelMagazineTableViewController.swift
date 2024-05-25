@@ -14,6 +14,7 @@ class TravelMagazineTableViewController: UITableViewController {
         super.viewDidLoad()
         
         tableView.rowHeight = 470
+        title = "YEGR TRAVEL"
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
