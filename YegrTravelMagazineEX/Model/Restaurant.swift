@@ -9,8 +9,8 @@ import Foundation
 
 struct Restaurant {
     let image: String
-    let latitude: Double
-    let longitude: Double
+    let latitude: Double // 위도
+    let longitude: Double // 경도
     let name: String
     let address: String
     let phoneNumber: String
@@ -20,6 +20,8 @@ struct Restaurant {
 }
 
 struct RestaurantList {
+    static let shared = RestaurantList()
+    
     let restaurantArray: [Restaurant] = [
         Restaurant(
             image: "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20170712_44%2F1499829806371zeBdS_JPEG%2FIMG_1167.jpg",

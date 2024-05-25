@@ -23,8 +23,8 @@ class TravelMagazineTableViewCell: UITableViewCell {
                 }
             } else {
                 DispatchQueue.main.async {
-                    self?.posterImageView.image = UIImage(systemName: "video.fill")
-                    self?.posterImageView.tintColor = .darkGray
+                    self?.posterImageView.image = UIImage(systemName: "leaf.fill")
+                    self?.posterImageView.tintColor = .lightGray
                 }
             }
         }

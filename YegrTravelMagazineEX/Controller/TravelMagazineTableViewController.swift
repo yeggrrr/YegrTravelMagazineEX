@@ -9,7 +9,6 @@ import UIKit
 import Kingfisher
 
 class TravelMagazineTableViewController: UITableViewController {
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,6 +26,9 @@ class TravelMagazineTableViewController: UITableViewController {
         let magazineInfo = MagazineInfo.shared.magazine[indexPath.row]
         if let url = URL(string: magazineInfo.photo_image) {
             cell.setPosterImage(imageURL: url)
+            cell.posterImageView.kf.indicatorType = .activity
+            cell.posterImageView.kf.setImage(with: url,
+                                  options: [.transition(.fade(2)), .forceTransition, .keepCurrentImageWhileLoading])
         }
         cell.posterImageView.layer.cornerRadius = 10
         cell.posterImageView.contentMode = .scaleAspectFill

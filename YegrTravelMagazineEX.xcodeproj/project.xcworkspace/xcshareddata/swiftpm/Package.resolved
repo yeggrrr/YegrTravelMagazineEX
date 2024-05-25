@@ -1,5 +1,5 @@
 {
-  "originHash" : "8d165512b8a70f612471911af7b33ff176f665d2daa7ed0519ccb1a33e80ce47",
+  "originHash" : "5f83280ea68881aeeea99aef4b0b0d87f8875b3c157831c81b1a91e82e5bb9a4",
   "pins" : [
     {
       "identity" : "kingfisher",
@@ -8,6 +8,15 @@
       "state" : {
         "revision" : "5b92f029fab2cce44386d28588098b5be0824ef5",
         "version" : "7.11.0"
+      }
+    },
+    {
+      "identity" : "marqueelabel",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/cbpowell/MarqueeLabel.git",
+      "state" : {
+        "revision" : "877e810534cda9afabb8143ae319b7c3341b121b",
+        "version" : "4.5.0"
       }
     }
   ],
