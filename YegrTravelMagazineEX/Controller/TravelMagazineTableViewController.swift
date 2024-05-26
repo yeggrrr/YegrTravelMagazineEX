@@ -53,7 +53,7 @@ class TravelMagazineTableViewController: UITableViewController {
         cell.posterImageView.kf.setImage(
             with: url,
             placeholder: defaultImage,
-            options: [.transition(.fade(0.1)), .forceTransition, .keepCurrentImageWhileLoading]
+            options: [.transition(.fade(0.1)), .forceTransition]
         )
         
         cell.titleLabel.text = magazineInfo.title

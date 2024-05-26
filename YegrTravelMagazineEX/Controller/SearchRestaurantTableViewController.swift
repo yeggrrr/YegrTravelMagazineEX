@@ -124,7 +124,7 @@ extension SearchRestaurantTableViewController {
         cell.posterImageView.kf.setImage(
             with: url,
             placeholder: defaultImage,
-            options: [.transition(.fade(0.1)), .forceTransition, .keepCurrentImageWhileLoading]
+            options: [.transition(.fade(0.1)), .forceTransition]
         )
         
         cell.titleLabel.text = item.name
@@ -137,6 +137,4 @@ extension SearchRestaurantTableViewController {
         cell.likeButton.addTarget(self, action: #selector(likeButtonClicked), for: .touchUpInside)
         return cell
     }
-    
-    
 }

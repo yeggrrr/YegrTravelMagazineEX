@@ -14,7 +14,11 @@ class TravelMagazineTableViewCell: UITableViewCell {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var subtitleLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
-
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+    }
+    
     func configureUI() {
         posterImageView.layer.cornerRadius = 10
         posterImageView.contentMode = .scaleAspectFill
@@ -39,5 +43,3 @@ class TravelMagazineTableViewCell: UITableViewCell {
         dateLabel.backgroundColor = .clear
     }
 }
-
-
