@@ -10,8 +10,8 @@ import Foundation
 struct Restaurant {
     var like: Bool
     let image: String
-    let latitude: Double // 위도
-    let longitude: Double // 경도
+    let latitude: Double
+    let longitude: Double
     let name: String
     let address: String
     let phoneNumber: String
@@ -81,7 +81,7 @@ struct RestaurantList {
             address: "서울 영등포구 선유로9길 10 1층",
             phoneNumber: "0507-1345-3738",
             category: "한식",
-            price: 10,
+            price: 10000,
             type: 100
         ),
         Restaurant(

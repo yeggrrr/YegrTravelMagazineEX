@@ -15,19 +15,28 @@ class TravelMagazineTableViewCell: UITableViewCell {
     @IBOutlet var subtitleLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
 
-    func setPosterImage(imageURL: URL) {
-        DispatchQueue.global().async { [ weak self ] in
-            if let data = try? Data(contentsOf: imageURL), let image = UIImage(data: data) {
-                DispatchQueue.main.async {
-                    self?.posterImageView.image = image
-                }
-            } else {
-                DispatchQueue.main.async {
-                    self?.posterImageView.image = UIImage(systemName: "leaf.fill")
-                    self?.posterImageView.tintColor = .lightGray
-                }
-            }
-        }
+    func configureUI() {
+        posterImageView.layer.cornerRadius = 10
+        posterImageView.contentMode = .scaleAspectFill
+        posterImageView.tintColor = .systemGray6
+        
+        titleLabel.textColor = .label
+        titleLabel.textAlignment = .left
+        titleLabel.numberOfLines = 0
+        titleLabel.font = .boldSystemFont(ofSize: 22)
+        titleLabel.backgroundColor = .clear
+        
+        subtitleLabel.textColor = .darkGray
+        subtitleLabel.textAlignment = .left
+        subtitleLabel.numberOfLines = 0
+        subtitleLabel.font = .boldSystemFont(ofSize: 16)
+        subtitleLabel.backgroundColor = .clear
+        
+        dateLabel.textColor = .lightGray
+        dateLabel.textAlignment = .right
+        dateLabel.numberOfLines = 0
+        dateLabel.font = .systemFont(ofSize: 15)
+        dateLabel.backgroundColor = .clear
     }
 }
 

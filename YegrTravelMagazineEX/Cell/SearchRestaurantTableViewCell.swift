@@ -17,18 +17,33 @@ class SearchRestaurantTableViewCell: UITableViewCell {
     @IBOutlet var priceLabel: UILabel!
     @IBOutlet var likeButton: UIButton!
     
-    func setPosterImage(imageURL: URL) {
-        DispatchQueue.global().async { [ weak self ] in
-            if let data = try? Data(contentsOf: imageURL), let image = UIImage(data: data) {
-                DispatchQueue.main.async {
-                    self?.posterImageView.image = image
-                }
-            } else {
-                DispatchQueue.main.async {
-                    self?.posterImageView.image = UIImage(systemName: "fork.knife")
-                    self?.posterImageView.tintColor = .lightGray
-                }
-            }
-        }
+    func configure() {
+        posterImageView.tintColor = .systemGray6
+        posterImageView.contentMode = .scaleAspectFill
+        posterImageView.layer.cornerRadius = 10
+        
+        titleLabel.textColor = .label
+        titleLabel.textAlignment = .left
+        titleLabel.numberOfLines = 0
+        titleLabel.font = .boldSystemFont(ofSize: 22)
+        
+        addressLabel.textColor = .darkGray
+        addressLabel.textAlignment = .left
+        addressLabel.numberOfLines = 0
+        addressLabel.font = .systemFont(ofSize: 18)
+        
+        phoneNumberLabel.textColor = .darkGray
+        phoneNumberLabel.textAlignment = .right
+        phoneNumberLabel.numberOfLines = 0
+        phoneNumberLabel.font = .boldSystemFont(ofSize: 15)
+        
+        priceLabel.textColor = .darkGray
+        priceLabel.textAlignment = .left
+        priceLabel.numberOfLines = 0
+        priceLabel.font = .boldSystemFont(ofSize: 16)
+        
+        let defaultImage = UIImage(systemName: "heart")
+        likeButton.setImage(defaultImage, for: .normal)
+        likeButton.tintColor = .red
     }
 }
