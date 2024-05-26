@@ -67,6 +67,7 @@ class SearchRestaurantTableViewController: UITableViewController {
             initailzedData()
         } else {
             searchList = RestaurantList.shared.restaurantArray.filter{ $0.category == text }
+            searchTextField.text = ""
             
             if searchList.isEmpty {
                 let alert = UIAlertController(title: "🔔알림🔔", message: "검색 결과가 없어요! \n한식, 중식, 일식, 양식, 카페 등 카테고리를 입력해주세요.", preferredStyle: .alert)
@@ -74,6 +75,7 @@ class SearchRestaurantTableViewController: UITableViewController {
                 alert.addAction(checkButton)
                 present(alert, animated: true)
                 initailzedData()
+                searchTextField.text = ""
             }
         }
         
@@ -135,4 +137,6 @@ extension SearchRestaurantTableViewController {
         cell.likeButton.addTarget(self, action: #selector(likeButtonClicked), for: .touchUpInside)
         return cell
     }
+    
+    
 }
