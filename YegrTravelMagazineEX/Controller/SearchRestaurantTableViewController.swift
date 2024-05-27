@@ -127,7 +127,7 @@ extension SearchRestaurantTableViewController {
             options: [.transition(.fade(0.1)), .forceTransition]
         )
         
-        cell.titleLabel.text = item.name
+        cell.titleLabel.text = "\(item.name) | \(item.category)"
         cell.addressLabel.text = item.address
         cell.phoneNumberLabel.text = "📞\(item.phoneNumber)"
         cell.priceLabel.text = "₩ \(item.price.formatted())"
