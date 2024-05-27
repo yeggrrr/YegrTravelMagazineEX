@@ -66,7 +66,7 @@ class SearchRestaurantTableViewController: UITableViewController {
         if text.isEmpty {
             initailzedData()
         } else {
-            searchList = RestaurantList.shared.restaurantArray.filter{ $0.category == text }
+            searchList = RestaurantList.shared.restaurantArray.filter{ $0.category == text || $0.name.contains(text) }
             searchTextField.text = ""
             
             if searchList.isEmpty {

@@ -53,8 +53,8 @@ class PopularCityTableViewCell: UITableViewCell {
     func configureCell(data: Travel) {
         titleLabel.text = data.title
         descriptionLabel.text = data.description
-        let gradeData = data.grade ?? 0.0
         
+        let gradeData = data.grade ?? 0.0
         var intValue = Int(gradeData)
         var floatingValue = gradeData - Double(intValue)
         
@@ -66,15 +66,14 @@ class PopularCityTableViewCell: UITableViewCell {
                 if floatingValue > 0.4 {
                     $0?.image = ImageCollection.starHalfImage
                     floatingValue = 0
-                }
-                else {
+                } else {
                     $0?.image = ImageCollection.starEmptyImage
                 }
             }
         }
-        
+        let grade = data.grade ?? 0.0
         let save = data.save ?? 0
-        saveLabel.text = "저장 \(save.formatted())"
+        saveLabel.text = "(\(grade)) | 저장 \(save.formatted())"
         
         let image = data.travel_image ?? "leaf.fill"
         let url = URL(string: image)

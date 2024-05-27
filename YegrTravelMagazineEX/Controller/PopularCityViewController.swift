@@ -52,21 +52,10 @@ extension PopularCityViewController: UITableViewDelegate, UITableViewDataSource 
         if data.ad == true {
             guard let adTableViewCell = tableView.dequeueReusableCell(withIdentifier: AdTableViewCell.identifier, for: indexPath) as? AdTableViewCell else { return UITableViewCell() }
             adTableViewCell.adLabel.text = data.title
-            adTableViewCell.adLabel.textAlignment = .center
-            adTableViewCell.adLabel.font = .boldSystemFont(ofSize: 17)
-        
             adTableViewCell.backgoundColorView.backgroundColor = UIColor(named: randomColor)
-            adTableViewCell.backgoundColorView.layer.cornerRadius = 20
-            
-            adTableViewCell.adBadgeButton.backgroundColor = .white
-            adTableViewCell.adBadgeButton.setTitle("AD", for: .normal)
-            adTableViewCell.adBadgeButton.setTitleColor(.label, for: .normal)
-            adTableViewCell.adBadgeButton.layer.cornerRadius = 5
-            
             return adTableViewCell
         } else {
             guard let popularCityTableViewCell = tableView.dequeueReusableCell(withIdentifier: PopularCityTableViewCell.identifier, for: indexPath) as? PopularCityTableViewCell else { return UITableViewCell() }
-            
             popularCityTableViewCell.configureCell(data: data)
             popularCityTableViewCell.likeButton.tag = indexPath.row
             popularCityTableViewCell.likeButton.addTarget(self, action: #selector(likeButtonClicked), for: .touchUpInside)

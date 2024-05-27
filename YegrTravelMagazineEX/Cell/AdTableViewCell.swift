@@ -16,7 +16,19 @@ class AdTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        configureUI()
     }
     
+    func configureUI() {
+        adLabel.textAlignment = .center
+        adLabel.font = .boldSystemFont(ofSize: 17)
+        
+        backgoundColorView.layer.cornerRadius = 20
+        
+        adBadgeButton.backgroundColor = .white
+        adBadgeButton.setTitle("AD", for: .normal)
+        adBadgeButton.setTitleColor(.label, for: .normal)
+        adBadgeButton.layer.cornerRadius = 8
+    }
     
 }

@@ -71,7 +71,7 @@
                         </subviews>
                     </stackView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XAK-Zr-mrj">
-                        <rect key="frame" x="100" y="66.333333333333329" width="263.33333333333331" height="15"/>
+                        <rect key="frame" x="97" y="66.333333333333329" width="266.33333333333331" height="15"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="yR9-yh-csQ"/>
                         </constraints>
@@ -85,7 +85,7 @@
                     <constraint firstItem="7dm-6e-7It" firstAttribute="leading" secondItem="XAK-Zr-mrj" secondAttribute="trailing" constant="20" id="6jJ-x5-Fki"/>
                     <constraint firstItem="RSj-Ar-oc1" firstAttribute="top" secondItem="7dm-6e-7It" secondAttribute="top" id="AxB-B1-b4Y"/>
                     <constraint firstItem="SMJ-4b-Hwc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="GuB-cn-4WQ"/>
-                    <constraint firstItem="XAK-Zr-mrj" firstAttribute="leading" secondItem="0cT-Ut-XNy" secondAttribute="trailing" constant="5" id="IH4-G2-r0R"/>
+                    <constraint firstItem="XAK-Zr-mrj" firstAttribute="leading" secondItem="0cT-Ut-XNy" secondAttribute="trailing" constant="2" id="IH4-G2-r0R"/>
                     <constraint firstItem="yLp-dg-wP9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="LTf-hs-idN"/>
                     <constraint firstItem="RSj-Ar-oc1" firstAttribute="trailing" secondItem="7dm-6e-7It" secondAttribute="trailing" id="NKa-mu-5M2"/>
                     <constraint firstItem="yLp-dg-wP9" firstAttribute="top" secondItem="SMJ-4b-Hwc" secondAttribute="bottom" constant="5" id="O63-wc-RSH"/>
