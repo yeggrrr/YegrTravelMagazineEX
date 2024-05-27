@@ -38,7 +38,7 @@ class PopularCityTableViewCell: UITableViewCell {
         let grade = [firstStarImageView, secondStarImageView, thirdStarImageView, forthStarImageView, fifthStarImageView]
         grade.forEach {
             $0?.tintColor = .systemOrange
-            $0?.image = UIImage(systemName: "star")
+            $0?.image = ImageCollection.starEmptyImage
         }
         saveLabel.textColor = .lightGray
         saveLabel.font = .systemFont(ofSize: 14)
@@ -52,60 +52,25 @@ class PopularCityTableViewCell: UITableViewCell {
     
     func configureCell(data: Travel) {
         titleLabel.text = data.title
-        
         descriptionLabel.text = data.description
-        
         let gradeData = data.grade ?? 0.0
         
-        switch gradeData {
-        case 0.0..<1.0:
-            firstStarImageView.image = UIImage(systemName: "star.leadinghalf.filled")
-            secondStarImageView.image = UIImage(systemName: "star")
-            thirdStarImageView.image = UIImage(systemName: "star")
-            forthStarImageView.image = UIImage(systemName: "star")
-            fifthStarImageView.image = UIImage(systemName: "star")
-        case 1.1..<1.6:
-            firstStarImageView.image = UIImage(systemName: "star.fill")
-            secondStarImageView.image = UIImage(systemName: "star.leadinghalf.filled")
-            thirdStarImageView.image = UIImage(systemName: "star")
-            forthStarImageView.image = UIImage(systemName: "star")
-            fifthStarImageView.image = UIImage(systemName: "star")
-        case 1.6..<2.1:
-            firstStarImageView.image = UIImage(systemName: "star.fill")
-            secondStarImageView.image = UIImage(systemName: "star.fill")
-            thirdStarImageView.image = UIImage(systemName: "star")
-            forthStarImageView.image = UIImage(systemName: "star")
-            fifthStarImageView.image = UIImage(systemName: "star")
-        case 2.1..<2.6:
-            firstStarImageView.image = UIImage(systemName: "star.fill")
-            secondStarImageView.image = UIImage(systemName: "star.fill")
-            thirdStarImageView.image = UIImage(systemName: "star.leadinghalf.filled")
-            forthStarImageView.image = UIImage(systemName: "star")
-            fifthStarImageView.image = UIImage(systemName: "star")
-        case 2.6..<3.1:
-            firstStarImageView.image = UIImage(systemName: "star.fill")
-            secondStarImageView.image = UIImage(systemName: "star.fill")
-            thirdStarImageView.image = UIImage(systemName: "star.fill")
-            forthStarImageView.image = UIImage(systemName: "star")
-            fifthStarImageView.image = UIImage(systemName: "star")
-        case 3.1..<3.6:
-            firstStarImageView.image = UIImage(systemName: "star.fill")
-            secondStarImageView.image = UIImage(systemName: "star.fill")
-            thirdStarImageView.image = UIImage(systemName: "star.fill")
-            forthStarImageView.image = UIImage(systemName: "star.leadinghalf.filled")
-            fifthStarImageView.image = UIImage(systemName: "star")
-        case 3.6..<4.1:
-            firstStarImageView.image = UIImage(systemName: "star.fill")
-            secondStarImageView.image = UIImage(systemName: "star.fill")
-            thirdStarImageView.image = UIImage(systemName: "star.fill")
-            forthStarImageView.image = UIImage(systemName: "star.fill")
-            fifthStarImageView.image = UIImage(systemName: "star")
-        default:
-            firstStarImageView.image = UIImage(systemName: "star.fill")
-            secondStarImageView.image = UIImage(systemName: "star.fill")
-            thirdStarImageView.image = UIImage(systemName: "star.fill")
-            forthStarImageView.image = UIImage(systemName: "star.fill")
-            fifthStarImageView.image = UIImage(systemName: "star.leadinghalf.filled")
+        var intValue = Int(gradeData)
+        var floatingValue = gradeData - Double(intValue)
+        
+        [firstStarImageView, secondStarImageView, thirdStarImageView, forthStarImageView, fifthStarImageView].forEach {
+            if intValue > 0 {
+                $0?.image = ImageCollection.starFillImage
+                intValue -= 1
+            } else {
+                if floatingValue > 0.4 {
+                    $0?.image = ImageCollection.starHalfImage
+                    floatingValue = 0
+                }
+                else {
+                    $0?.image = ImageCollection.starEmptyImage
+                }
+            }
         }
         
         let save = data.save ?? 0
@@ -118,4 +83,10 @@ class PopularCityTableViewCell: UITableViewCell {
         let heartImage = data.like ?? false ? UIImage(systemName: "heart.fill") : UIImage(systemName: "heart")
         likeButton.setImage(heartImage, for: .normal)
     }
+}
+
+struct ImageCollection {
+    static let starFillImage = UIImage(systemName: "star.fill")
+    static let starHalfImage = UIImage(systemName: "star.leadinghalf.filled")
+    static let starEmptyImage = UIImage(systemName: "star")
 }

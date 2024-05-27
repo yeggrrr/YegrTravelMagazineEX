@@ -4,20 +4,67 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdTableViewCell" id="KGk-i7-Jjw" customClass="AdTableViewCell" customModule="YegrTravelMagazineEX" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdTableViewCell" rowHeight="92" id="KGk-i7-Jjw" customClass="AdTableViewCell" customModule="YegrTravelMagazineEX" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="410" height="92"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <rect key="frame" x="0.0" y="0.0" width="410" height="92"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DJN-z4-EkE">
+                        <rect key="frame" x="10" y="10" width="390" height="72"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kND-4Z-tds">
+                                <rect key="frame" x="350" y="10" width="30" height="20"/>
+                                <color key="backgroundColor" red="1" green="0.6383601002" blue="0.74061062320000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="kND-4Z-tds" secondAttribute="height" multiplier="3:2" id="JQy-Aq-IL0"/>
+                                    <constraint firstAttribute="width" constant="30" id="gxH-hc-K8r"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="kND-4Z-tds" secondAttribute="trailing" constant="10" id="CM8-Sw-6iQ"/>
+                            <constraint firstItem="kND-4Z-tds" firstAttribute="top" secondItem="DJN-z4-EkE" secondAttribute="top" constant="10" id="ryj-Tm-IVQ"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZCc-8r-PIF">
+                        <rect key="frame" x="10" y="35.666666666666664" width="390" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="ZCc-8r-PIF" firstAttribute="trailing" secondItem="DJN-z4-EkE" secondAttribute="trailing" id="7EQ-ZO-moI"/>
+                    <constraint firstItem="ZCc-8r-PIF" firstAttribute="centerY" secondItem="DJN-z4-EkE" secondAttribute="centerY" id="873-WF-lG5"/>
+                    <constraint firstItem="ZCc-8r-PIF" firstAttribute="leading" secondItem="DJN-z4-EkE" secondAttribute="leading" id="8s9-ml-ror"/>
+                    <constraint firstItem="DJN-z4-EkE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Hs1-iY-Ykc"/>
+                    <constraint firstItem="DJN-z4-EkE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="PRh-XA-A2B"/>
+                    <constraint firstAttribute="trailing" secondItem="DJN-z4-EkE" secondAttribute="trailing" constant="10" id="SGL-j7-iYC"/>
+                    <constraint firstAttribute="bottom" secondItem="DJN-z4-EkE" secondAttribute="bottom" constant="10" id="o57-hn-GxD"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
-            <point key="canvasLocation" x="139" y="20"/>
+            <connections>
+                <outlet property="adBadgeButton" destination="kND-4Z-tds" id="a2o-Ug-PPk"/>
+                <outlet property="adLabel" destination="ZCc-8r-PIF" id="MuL-Io-thY"/>
+                <outlet property="backgoundColorView" destination="DJN-z4-EkE" id="NBf-TS-U4H"/>
+            </connections>
+            <point key="canvasLocation" x="70.229007633587784" y="36.619718309859159"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

@@ -8,11 +8,14 @@
 import UIKit
 
 class AdTableViewCell: UITableViewCell {
-    static let identifer = "AdTableViewCell"
+    static let identifier = "AdTableViewCell"
+    
+    @IBOutlet var backgoundColorView: UIView!
+    @IBOutlet var adLabel: UILabel!
+    @IBOutlet var adBadgeButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
     }
     
     

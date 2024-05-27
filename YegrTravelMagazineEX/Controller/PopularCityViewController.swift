@@ -21,8 +21,11 @@ class PopularCityViewController: UIViewController {
         title = "도시 상세 정보"
         popularCityTableView.delegate = self
         popularCityTableView.dataSource = self
-        let xib = UINib(nibName: PopularCityTableViewCell.identifier, bundle: nil)
-        popularCityTableView.register(xib, forCellReuseIdentifier: PopularCityTableViewCell.identifier)
+        let popularCityCellXib = UINib(nibName: PopularCityTableViewCell.identifier, bundle: nil)
+        popularCityTableView.register(popularCityCellXib, forCellReuseIdentifier: PopularCityTableViewCell.identifier)
+        
+        let adCellXib = UINib(nibName: AdTableViewCell.identifier, bundle: nil)
+        popularCityTableView.register(adCellXib, forCellReuseIdentifier: AdTableViewCell.identifier)
         
     }
 }
@@ -30,7 +33,11 @@ class PopularCityViewController: UIViewController {
 extension PopularCityViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        130
+        if TravelInfo.shared.travel[indexPath.row].ad == true {
+            return 90
+        } else {
+            return 150
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -38,14 +45,33 @@ extension PopularCityViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: PopularCityTableViewCell.identifier, for: indexPath) as? PopularCityTableViewCell else { return UITableViewCell() }
-        
         let data = TravelInfo.shared.travel[indexPath.row]
-        cell.configureCell(data: data)
-    
-        cell.likeButton.tag = indexPath.row
-        cell.likeButton.addTarget(self, action: #selector(likeButtonClicked), for: .touchUpInside)
-        return cell
+        let color = ["Blue", "Pink", "Green", "Purple", "Yellow"]
+        let randomColor = color.randomElement()!
+        
+        if data.ad == true {
+            guard let adTableViewCell = tableView.dequeueReusableCell(withIdentifier: AdTableViewCell.identifier, for: indexPath) as? AdTableViewCell else { return UITableViewCell() }
+            adTableViewCell.adLabel.text = data.title
+            adTableViewCell.adLabel.textAlignment = .center
+            adTableViewCell.adLabel.font = .boldSystemFont(ofSize: 17)
+        
+            adTableViewCell.backgoundColorView.backgroundColor = UIColor(named: randomColor)
+            adTableViewCell.backgoundColorView.layer.cornerRadius = 20
+            
+            adTableViewCell.adBadgeButton.backgroundColor = .white
+            adTableViewCell.adBadgeButton.setTitle("AD", for: .normal)
+            adTableViewCell.adBadgeButton.setTitleColor(.label, for: .normal)
+            adTableViewCell.adBadgeButton.layer.cornerRadius = 5
+            
+            return adTableViewCell
+        } else {
+            guard let popularCityTableViewCell = tableView.dequeueReusableCell(withIdentifier: PopularCityTableViewCell.identifier, for: indexPath) as? PopularCityTableViewCell else { return UITableViewCell() }
+            
+            popularCityTableViewCell.configureCell(data: data)
+            popularCityTableViewCell.likeButton.tag = indexPath.row
+            popularCityTableViewCell.likeButton.addTarget(self, action: #selector(likeButtonClicked), for: .touchUpInside)
+            return popularCityTableViewCell
+        }
     }
     
     @objc func likeButtonClicked(sender: UIButton) {
