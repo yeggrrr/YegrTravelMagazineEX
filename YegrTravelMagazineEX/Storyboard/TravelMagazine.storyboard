@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -281,11 +282,12 @@
                     <connections>
                         <segue destination="661-Vk-evW" kind="relationship" relationship="viewControllers" id="dJb-xx-kVp"/>
                         <segue destination="DdS-dM-Ssh" kind="relationship" relationship="viewControllers" id="ZRa-4P-303"/>
+                        <segue destination="ZZ7-fO-zIP" kind="relationship" relationship="viewControllers" id="Z5S-Hc-aAZ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mvw-y7-Mz4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3026.6355140186915" y="-501.51187904967605"/>
+            <point key="canvasLocation" x="2805" y="-32"/>
         </scene>
         <!--jjj-->
         <scene sceneID="ui1-dv-WDk">
@@ -308,6 +310,56 @@
             </objects>
             <point key="canvasLocation" x="3783.6448598130837" y="-32.397408207343418"/>
         </scene>
+        <!--Popular City View Controller-->
+        <scene sceneID="Acs-BG-Sry">
+            <objects>
+                <viewController id="WMo-9f-nba" customClass="PopularCityViewController" customModule="YegrTravelMagazineEX" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="do6-fi-GGj">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="o92-iY-1Xu">
+                                <rect key="frame" x="0.0" y="91" width="428" height="835"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="tfk-gp-bGI"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="o92-iY-1Xu" secondAttribute="bottom" id="1m0-0F-VFZ"/>
+                            <constraint firstItem="o92-iY-1Xu" firstAttribute="top" secondItem="tfk-gp-bGI" secondAttribute="top" id="6wt-21-nZT"/>
+                            <constraint firstItem="o92-iY-1Xu" firstAttribute="leading" secondItem="tfk-gp-bGI" secondAttribute="leading" id="PWD-l3-w68"/>
+                            <constraint firstItem="tfk-gp-bGI" firstAttribute="trailing" secondItem="o92-iY-1Xu" secondAttribute="trailing" id="hVO-fz-ehY"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="fAA-6h-nuq"/>
+                    <connections>
+                        <outlet property="popularCityTableView" destination="o92-iY-1Xu" id="fzz-aU-PQo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="53V-gZ-VR2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4552" y="667"/>
+        </scene>
+        <!--Popular-->
+        <scene sceneID="yoG-Vg-nGD">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZZ7-fO-zIP" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Popular" image="map.fill" catalog="system" id="QfE-cr-VCS"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HGo-6r-wNJ">
+                        <rect key="frame" x="0.0" y="47" width="428" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="WMo-9f-nba" kind="relationship" relationship="rootViewController" id="McR-sR-8Kf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TvQ-Wb-0Ri" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3784" y="667"/>
+        </scene>
     </scenes>
     <designables>
         <designable name="n2F-wu-pYy">
@@ -318,6 +370,7 @@
         <image name="airplane" catalog="system" width="128" height="115"/>
         <image name="fork.knife" catalog="system" width="94" height="128"/>
         <image name="heart" catalog="system" width="128" height="107"/>
+        <image name="map.fill" catalog="system" width="128" height="110"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
