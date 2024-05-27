@@ -44,6 +44,6 @@ class SearchRestaurantTableViewCell: UITableViewCell {
         
         let defaultImage = UIImage(systemName: "heart")
         likeButton.setImage(defaultImage, for: .normal)
-        likeButton.tintColor = .red
+        likeButton.tintColor = .white
     }
 }
