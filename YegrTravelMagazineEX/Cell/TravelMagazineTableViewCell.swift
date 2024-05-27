@@ -15,10 +15,6 @@ class TravelMagazineTableViewCell: UITableViewCell {
     @IBOutlet var subtitleLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
     
-    override func prepareForReuse() {
-        super.prepareForReuse()
-    }
-    
     func configureUI() {
         posterImageView.layer.cornerRadius = 10
         posterImageView.contentMode = .scaleAspectFill

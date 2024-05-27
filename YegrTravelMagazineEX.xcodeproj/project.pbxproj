@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		682EE2112C0219D1006D487A /* MarqueeLabel in Frameworks */ = {isa = PBXBuildFile; productRef = 682EE2102C0219D1006D487A /* MarqueeLabel */; };
+		682EE2462C046E1B006D487A /* Travel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682EE2452C046E1B006D487A /* Travel.swift */; };
 		68920A512C01BB6A00833D35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68920A502C01BB6A00833D35 /* AppDelegate.swift */; };
 		68920A532C01BB6A00833D35 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68920A522C01BB6A00833D35 /* SceneDelegate.swift */; };
 		68920A552C01BB6A00833D35 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68920A542C01BB6A00833D35 /* ViewController.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		682EE2452C046E1B006D487A /* Travel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Travel.swift; sourceTree = "<group>"; };
 		68920A4D2C01BB6A00833D35 /* YegrTravelMagazineEX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YegrTravelMagazineEX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68920A502C01BB6A00833D35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		68920A522C01BB6A00833D35 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 			children = (
 				68920A652C01BC7200833D35 /* Magazine.swift */,
 				68920A672C01BF6E00833D35 /* Restaurant.swift */,
+				682EE2452C046E1B006D487A /* Travel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 				68920A682C01BF6E00833D35 /* Restaurant.swift in Sources */,
 				68920A552C01BB6A00833D35 /* ViewController.swift in Sources */,
 				68920A7A2C01E91C00833D35 /* SearchRestaurantTableViewController.swift in Sources */,
+				682EE2462C046E1B006D487A /* Travel.swift in Sources */,
 				68920A662C01BC7200833D35 /* Magazine.swift in Sources */,
 				68920A512C01BB6A00833D35 /* AppDelegate.swift in Sources */,
 				68920A7C2C01E95C00833D35 /* SearchRestaurantTableViewCell.swift in Sources */,

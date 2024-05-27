@@ -58,6 +58,7 @@ class TravelMagazineTableViewController: UITableViewController {
         
         cell.titleLabel.text = magazineInfo.title
         cell.subtitleLabel.text = magazineInfo.subtitle
+        
         return cell
     }
 }
