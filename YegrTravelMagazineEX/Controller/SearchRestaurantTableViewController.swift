@@ -10,14 +10,11 @@ import Kingfisher
 import MarqueeLabel
 
 class SearchRestaurantTableViewController: UITableViewController {
-    // MARK: UI
     @IBOutlet var searchTextField: UITextField!
     @IBOutlet var searchButton: UIButton!
     
-    // MARK: Properties
     var searchList: [Restaurant] = []
     
-    // MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,7 +22,6 @@ class SearchRestaurantTableViewController: UITableViewController {
         initailzedData()
     }
     
-    // MARK: Configure
     func configureUI() {
         // Navigation title
         title = "Search"
@@ -59,7 +55,6 @@ class SearchRestaurantTableViewController: UITableViewController {
         searchList = RestaurantList.restaurantArray
     }
     
-    // MARK: Functions
     func getSearchData() {
         guard let text = searchTextField.text else { return }
         
@@ -83,7 +78,6 @@ class SearchRestaurantTableViewController: UITableViewController {
         view.endEditing(true)
     }
     
-    // MARK: Actions
     @objc func likeButtonClicked(sender: UIButton) {
         searchList[sender.tag].like.toggle()
         tableView.reloadRows(at: [IndexPath(row: sender.tag, section: 0)], with: .fade)
@@ -101,7 +95,6 @@ class SearchRestaurantTableViewController: UITableViewController {
     }
 }
 
-// MARK: TableView DataSource & Delegate
 extension SearchRestaurantTableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 180
@@ -115,23 +108,10 @@ extension SearchRestaurantTableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchRestaurantTableViewCell.identifier, for: indexPath) as? SearchRestaurantTableViewCell else { return UITableViewCell() }
         
         let item = searchList[indexPath.row]
-        let url = URL(string: item.image)
-        let defaultImage = UIImage(systemName: "fork.knife")
         let heartImage = item.like ? UIImage(systemName: "heart.fill") : UIImage(systemName: "heart")
         
         cell.configure()
-        cell.posterImageView.kf.indicatorType = .activity
-        cell.posterImageView.kf.setImage(
-            with: url,
-            placeholder: defaultImage,
-            options: [.transition(.fade(0.1)), .forceTransition]
-        )
-        
-        cell.titleLabel.text = "\(item.name) | \(item.category)"
-        cell.addressLabel.text = item.address
-        cell.phoneNumberLabel.text = "📞\(item.phoneNumber)"
-        cell.priceLabel.text = "₩ \(item.price.formatted())"
-        
+        cell.configureCell(item: item)
         cell.likeButton.setImage(heartImage, for: .normal)
         cell.likeButton.tag = indexPath.row
         cell.likeButton.addTarget(self, action: #selector(likeButtonClicked), for: .touchUpInside)

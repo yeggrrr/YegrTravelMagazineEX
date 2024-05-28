@@ -26,7 +26,7 @@ class TravelMagazineTableViewCell: UITableViewCell {
         dateFormat.dateFormat = "yyMMdd"
         return dateFormat.date(from: date)
     }
-        
+    
     func configureUI() {
         posterImageView.layer.cornerRadius = 10
         posterImageView.contentMode = .scaleAspectFill

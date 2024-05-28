@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class SearchRestaurantTableViewCell: UITableViewCell {
     static let identifier = "SearchRestaurantTableViewCell"
@@ -45,5 +46,21 @@ class SearchRestaurantTableViewCell: UITableViewCell {
         let defaultImage = UIImage(systemName: "heart")
         likeButton.setImage(defaultImage, for: .normal)
         likeButton.tintColor = .white
+    }
+    
+    func configureCell(item: Restaurant) {
+        let url = URL(string: item.image)
+        let defaultImage = UIImage(systemName: "fork.knife")
+        
+        posterImageView.kf.indicatorType = .activity
+        posterImageView.kf.setImage(
+            with: url,
+            placeholder: defaultImage,
+            options: [.transition(.fade(0.1)), .forceTransition]
+        )
+        titleLabel.text = "\(item.name) | \(item.category)"
+        addressLabel.text = item.address
+        phoneNumberLabel.text = "📞\(item.phoneNumber)"
+        priceLabel.text = "₩ \(item.price.formatted())"
     }
 }
