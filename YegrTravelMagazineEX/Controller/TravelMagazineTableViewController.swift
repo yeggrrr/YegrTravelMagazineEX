@@ -34,8 +34,8 @@ class TravelMagazineTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: TravelMagazineTableViewCell.identifier, for: indexPath) as? 
-            TravelMagazineTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TravelMagazineTableViewCell.identifier, for: indexPath) as?
+                TravelMagazineTableViewCell else { return UITableViewCell() }
         
         let magazineInfo = MagazineInfo.shared.magazine[indexPath.row]
         let url = URL(string: magazineInfo.photo_image)
@@ -58,7 +58,6 @@ class TravelMagazineTableViewController: UITableViewController {
         
         cell.titleLabel.text = magazineInfo.title
         cell.subtitleLabel.text = magazineInfo.subtitle
-        
         return cell
     }
 }

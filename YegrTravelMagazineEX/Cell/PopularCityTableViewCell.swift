@@ -29,7 +29,6 @@ class PopularCityTableViewCell: UITableViewCell {
     func configureUI() {
         titleLabel.textColor = .label
         titleLabel.font = .boldSystemFont(ofSize: 18)
-        
         descriptionLabel.textAlignment = .left
         descriptionLabel.numberOfLines = 0
         descriptionLabel.textColor = .darkGray
@@ -42,11 +41,9 @@ class PopularCityTableViewCell: UITableViewCell {
         }
         saveLabel.textColor = .lightGray
         saveLabel.font = .systemFont(ofSize: 14)
-        
         detailImageView.contentMode = .scaleAspectFill
         detailImageView.layer.cornerRadius = 8
         detailImageView.tintColor = .systemGray6
-        
         likeButton.tintColor = .white
     }
     
@@ -73,13 +70,11 @@ class PopularCityTableViewCell: UITableViewCell {
         }
         let grade = data.grade ?? 0.0
         let save = data.save ?? 0
-        saveLabel.text = "(\(grade)) | 저장 \(save.formatted())"
-        
         let image = data.travel_image ?? "leaf.fill"
         let url = URL(string: image)
-        detailImageView.kf.setImage(with: url, placeholder: UIImage(systemName: "leaf.fill"))
-        
         let heartImage = data.like ?? false ? UIImage(systemName: "heart.fill") : UIImage(systemName: "heart")
+        saveLabel.text = "(\(grade)) | 저장 \(save.formatted())"
+        detailImageView.kf.setImage(with: url, placeholder: UIImage(systemName: "leaf.fill"))
         likeButton.setImage(heartImage, for: .normal)
     }
 }

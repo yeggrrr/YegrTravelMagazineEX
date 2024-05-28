@@ -70,7 +70,7 @@ class SearchRestaurantTableViewController: UITableViewController {
             searchTextField.text = ""
             
             if searchList.isEmpty {
-                let alert = UIAlertController(title: "🔔알림🔔", message: "검색 결과가 없어요! \n한식, 중식, 일식, 양식, 카페 등 카테고리를 입력해주세요.", preferredStyle: .alert)
+                let alert = UIAlertController(title: "🔔알림🔔", message: "검색 결과가 없어요! \n가게 이름이나 한식, 중식, 일식, 카페 등 \n카테고리를 입력해주세요.", preferredStyle: .alert)
                 let checkButton = UIAlertAction(title: "확인", style: .default)
                 alert.addAction(checkButton)
                 present(alert, animated: true)

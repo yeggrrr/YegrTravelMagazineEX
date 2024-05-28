@@ -37,7 +37,7 @@ class SearchRestaurantTableViewCell: UITableViewCell {
         phoneNumberLabel.numberOfLines = 0
         phoneNumberLabel.font = .boldSystemFont(ofSize: 15)
         
-        priceLabel.textColor = .darkGray
+        priceLabel.textColor = .systemOrange
         priceLabel.textAlignment = .left
         priceLabel.numberOfLines = 0
         priceLabel.font = .boldSystemFont(ofSize: 16)
