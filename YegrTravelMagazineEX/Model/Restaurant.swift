@@ -21,9 +21,7 @@ struct Restaurant {
 }
 
 struct RestaurantList {
-    static var shared = RestaurantList()
-    
-    var restaurantArray: [Restaurant] = [
+    static var restaurantArray: [Restaurant] = [
         Restaurant(
             like: false,
             image: "https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20170712_44%2F1499829806371zeBdS_JPEG%2FIMG_1167.jpg",

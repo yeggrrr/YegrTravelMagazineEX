@@ -68,12 +68,10 @@ class PopularCityTableViewCell: UITableViewCell {
                 }
             }
         }
-        let grade = data.grade ?? 0.0
-        let save = data.save ?? 0
         let image = data.travel_image ?? "leaf.fill"
         let url = URL(string: image)
         let heartImage = data.like ?? false ? UIImage(systemName: "heart.fill") : UIImage(systemName: "heart")
-        saveLabel.text = "(\(grade)) | 저장 \(save.formatted())"
+        saveLabel.text = data.titleDescription
         detailImageView.kf.setImage(with: url, placeholder: UIImage(systemName: "leaf.fill"))
         likeButton.setImage(heartImage, for: .normal)
     }

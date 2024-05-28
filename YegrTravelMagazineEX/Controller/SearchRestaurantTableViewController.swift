@@ -56,7 +56,7 @@ class SearchRestaurantTableViewController: UITableViewController {
     }
     
     func initailzedData() {
-        searchList = RestaurantList.shared.restaurantArray
+        searchList = RestaurantList.restaurantArray
     }
     
     // MARK: Functions
@@ -66,7 +66,7 @@ class SearchRestaurantTableViewController: UITableViewController {
         if text.isEmpty {
             initailzedData()
         } else {
-            searchList = RestaurantList.shared.restaurantArray.filter{ $0.category == text || $0.name.contains(text) }
+            searchList = RestaurantList.restaurantArray.filter{ $0.category == text || $0.name.contains(text) }
             searchTextField.text = ""
             
             if searchList.isEmpty {
@@ -87,10 +87,10 @@ class SearchRestaurantTableViewController: UITableViewController {
     @objc func likeButtonClicked(sender: UIButton) {
         searchList[sender.tag].like.toggle()
         tableView.reloadRows(at: [IndexPath(row: sender.tag, section: 0)], with: .fade)
-        for i in 0..<RestaurantList.shared.restaurantArray.count {
-            let item = RestaurantList.shared.restaurantArray[i]
+        for i in 0..<RestaurantList.restaurantArray.count {
+            let item = RestaurantList.restaurantArray[i]
             if item.name == searchList[sender.tag].name {
-                RestaurantList.shared.restaurantArray[i].like = searchList[sender.tag].like
+                RestaurantList.restaurantArray[i].like = searchList[sender.tag].like
                 return
             }
         }
