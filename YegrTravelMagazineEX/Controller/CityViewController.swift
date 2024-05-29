@@ -17,6 +17,7 @@ class CityViewController: UIViewController {
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var citySegmentedControl: UISegmentedControl!
     @IBOutlet var cityTableView: UITableView!
+    @IBOutlet var noticeLabel: UILabel!
     
     let cityList = CityInfo.city
     var filteredDataList: [City] = []
@@ -41,6 +42,12 @@ class CityViewController: UIViewController {
         
         let cityXib = UINib(nibName: CityTableViewCell.identifier, bundle: nil)
         cityTableView.register(cityXib, forCellReuseIdentifier: CityTableViewCell.identifier)
+        
+        // noticeLabel
+        noticeLabel.isHidden = true
+        noticeLabel.textColor = .darkGray
+        noticeLabel.font = .boldSystemFont(ofSize: 20)
+        noticeLabel.textAlignment = .center
     }
     
     func setSegmentControll() {
@@ -85,10 +92,13 @@ class CityViewController: UIViewController {
         switch filterType {
         case .all:
             filteredDataList = cityList
+            noticeLabel.isHidden = true
         case .domestic:
             filteredDataList = cityList.filter{ $0.domestic_travel }
+            noticeLabel.isHidden = true
         case .international:
             filteredDataList = cityList.filter{ !$0.domestic_travel }
+            noticeLabel.isHidden = true
         }
         cityTableView.reloadData()
     }
@@ -126,10 +136,13 @@ extension CityViewController: UISearchBarDelegate {
         switch filterType {
         case .all:
             filteredDataList = result
+            noticeLabel.isHidden = true
         case .domestic:
             filteredDataList = result.filter{ $0.domestic_travel }
+            noticeLabel.isHidden = true
         case .international:
             filteredDataList = result.filter{ !$0.domestic_travel }
+            noticeLabel.isHidden = true
         }
         
         if searchText == "" {
@@ -140,8 +153,12 @@ extension CityViewController: UISearchBarDelegate {
             let okButton = UIAlertAction(title: "확인", style: .default)
             alert.addAction(okButton)
             present(alert, animated: true)
+        } else if filteredDataList.isEmpty {
+            noticeLabel.isHidden = false
+            noticeLabel.text = "검색 결과 없음"
+            searchBar.text = ""
         }
-        
+    
         cityTableView.reloadData()
     }
     
