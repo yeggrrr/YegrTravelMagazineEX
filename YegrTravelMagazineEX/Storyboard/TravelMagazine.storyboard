@@ -350,8 +350,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Q7b-gc-IKZ">
+                                <rect key="frame" x="0.0" y="91" width="428" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="XEL-PE-jjW" id="eJn-zz-zSZ"/>
+                                </connections>
+                            </searchBar>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="rQn-7f-M5w">
-                                <rect key="frame" x="10" y="101" width="408" height="32"/>
+                                <rect key="frame" x="10" y="152" width="408" height="32"/>
                                 <color key="backgroundColor" red="0.94706427189999998" green="0.80744258710000005" blue="0.90331321610000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <segments>
                                     <segment title="전체"/>
@@ -361,20 +368,23 @@
                                 <color key="tintColor" red="1" green="0.6383601002" blue="0.74061062320000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="39V-YW-5xu">
-                                <rect key="frame" x="10" y="137" width="408" height="706"/>
+                                <rect key="frame" x="10" y="188" width="408" height="655"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="TXr-ph-3o9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Q7b-gc-IKZ" firstAttribute="leading" secondItem="TXr-ph-3o9" secondAttribute="leading" id="09y-TK-oyo"/>
                             <constraint firstItem="TXr-ph-3o9" firstAttribute="bottom" secondItem="39V-YW-5xu" secondAttribute="bottom" id="6Yl-GX-g55"/>
                             <constraint firstItem="39V-YW-5xu" firstAttribute="leading" secondItem="TXr-ph-3o9" secondAttribute="leading" constant="10" id="G31-3H-y53"/>
                             <constraint firstItem="TXr-ph-3o9" firstAttribute="trailing" secondItem="rQn-7f-M5w" secondAttribute="trailing" constant="10" id="OyB-eN-hLi"/>
-                            <constraint firstItem="rQn-7f-M5w" firstAttribute="top" secondItem="TXr-ph-3o9" secondAttribute="top" constant="10" id="VXD-jy-YOk"/>
                             <constraint firstItem="TXr-ph-3o9" firstAttribute="trailing" secondItem="39V-YW-5xu" secondAttribute="trailing" constant="10" id="b28-LH-wHc"/>
                             <constraint firstItem="rQn-7f-M5w" firstAttribute="leading" secondItem="TXr-ph-3o9" secondAttribute="leading" constant="10" id="dl0-XQ-ufT"/>
                             <constraint firstItem="39V-YW-5xu" firstAttribute="top" secondItem="rQn-7f-M5w" secondAttribute="bottom" constant="5" id="eA5-zl-weH"/>
+                            <constraint firstItem="Q7b-gc-IKZ" firstAttribute="top" secondItem="TXr-ph-3o9" secondAttribute="top" id="gWU-Yc-mMX"/>
+                            <constraint firstItem="rQn-7f-M5w" firstAttribute="top" secondItem="Q7b-gc-IKZ" secondAttribute="bottom" constant="5" id="qn1-V7-y0E"/>
+                            <constraint firstItem="TXr-ph-3o9" firstAttribute="trailing" secondItem="Q7b-gc-IKZ" secondAttribute="trailing" id="sSI-Hn-dDx"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2R1-eH-U3D"/>
@@ -385,7 +395,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rrk-fn-h8G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4227" y="1359"/>
+            <point key="canvasLocation" x="4226.6355140186915" y="1358.7473002159827"/>
         </scene>
         <!--Popular-->
         <scene sceneID="yoG-Vg-nGD">
