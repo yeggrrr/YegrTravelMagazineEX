@@ -63,6 +63,22 @@ extension PopularCityViewController: UITableViewDelegate, UITableViewDataSource 
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let data = TravelInfo.travel[indexPath.row]
+        
+        if data.ad == true{
+            let sb = UIStoryboard(name: "Advertisement", bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: "AdvertisementViewController") as! AdvertisementViewController
+            let nav = UINavigationController(rootViewController: vc)
+            nav.modalPresentationStyle = .fullScreen
+            navigationController?.present(nav, animated: true)
+        } else {
+            let sb = UIStoryboard(name: "TouristDestination", bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: "TouristDestinationViewController") as! TouristDestinationViewController
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
     @objc func likeButtonClicked(sender: UIButton) {
         TravelInfo.travel[sender.tag].like?.toggle()
         popularCityTableView.reloadData()
