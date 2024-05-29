@@ -19,6 +19,7 @@ class AdvertisementViewController: UIViewController {
         navigationItem.title = "광고 화면"
         let left = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: self, action: #selector(xBarButtonClicked))
         navigationItem.leftBarButtonItem = left
+        navigationItem.leftBarButtonItem?.tintColor = UIColor(named: "ButtonColor")
     }
     
     @objc func xBarButtonClicked() {
