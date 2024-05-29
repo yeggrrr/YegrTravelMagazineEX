@@ -7,19 +7,28 @@
 
 import UIKit
 
+enum FilterType: Int {
+    case all = 0
+    case domestic
+    case international
+}
+
 class CityViewController: UIViewController {
+    @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var citySegmentedControl: UISegmentedControl!
     @IBOutlet var cityTableView: UITableView!
     
-    let data = CityInfo.city
+    let cityList = CityInfo.city
     var filteredDataList: [City] = []
     var isFiltered = false
+    var filterType: FilterType = .all
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureUI()
         setSegmentControll()
+        setSearchBar()
     }
     
     func configureUI() {
@@ -38,23 +47,49 @@ class CityViewController: UIViewController {
         citySegmentedControl.addTarget(self, action: #selector(segmentValueChanged), for: .valueChanged)
     }
     
+    func setSearchBar() {
+        searchBar.placeholder = "입력해주세요."
+        // cancelButton Color
+        let cancelButtonAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "ButtonColor")]
+        UIBarButtonItem.appearance().setTitleTextAttributes(cancelButtonAttributes as [NSAttributedString.Key : Any] , for: .normal)
+        // searchBarTextField Color
+        if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
+            textfield.backgroundColor = UIColor(named: "TextFieldBackgroundColor")
+            textfield.attributedPlaceholder = NSAttributedString(string: textfield.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+            textfield.textColor = UIColor.white
+            // 왼쪽 아이콘 이미지
+            if let leftView = textfield.leftView as? UIImageView {
+                leftView.image = leftView.image?.withRenderingMode(.alwaysTemplate)
+                leftView.tintColor = UIColor.white
+            }
+        }
+    }
+    
     @objc func segmentValueChanged(segment: UISegmentedControl) {
         isFiltered = true
         
         switch segment.selectedSegmentIndex {
         case 0:
-            filteredDataList = CityInfo.city
-            print("0클릭됨")
+            filterType = .all
         case 1:
-            filteredDataList = CityInfo.city.filter{ $0.domestic_travel == true }
-            print("1클릭됨")
+            filterType = .domestic
         case 2:
-            filteredDataList = CityInfo.city.filter{ $0.domestic_travel == false }
-            print("2클릭됨")
+            filterType = .international
         default:
             break
         }
-        
+        updateCityList()
+    }
+    
+    func updateCityList() {
+        switch filterType {
+        case .all:
+            filteredDataList = cityList
+        case .domestic:
+            filteredDataList = cityList.filter{ $0.domestic_travel }
+        case .international:
+            filteredDataList = cityList.filter{ !$0.domestic_travel }
+        }
         cityTableView.reloadData()
     }
 }
@@ -66,17 +101,42 @@ extension CityViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if isFiltered {
-            return filteredDataList.count
-        } else {
-            return data.count
-        }
+        return isFiltered ? filteredDataList.count : cityList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CityTableViewCell.identifier, for: indexPath) as? CityTableViewCell else { return UITableViewCell() }
-        let data = isFiltered ? filteredDataList[indexPath.row] : data[indexPath.row]
+        let data = isFiltered ? filteredDataList[indexPath.row] : cityList[indexPath.row]
         cell.configureCell(data: data)
         return cell
+    }
+}
+
+extension CityViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        isFiltered = true
+        guard let searchText = searchBar.text?.lowercased() else { return }
+        
+        let matchedNameList = CityInfo.city.filter{ $0.city_name.lowercased().contains(searchText) }
+        let matchedEnglishNameList = CityInfo.city.filter{ $0.city_english_name.lowercased().contains(searchText) }
+        let matchedExplainList = CityInfo.city.filter{ $0.city_explain.lowercased().contains(searchText) }
+        
+        let searchedList = matchedNameList + matchedEnglishNameList + matchedExplainList
+        let result = Array(Set(searchedList))
+        switch filterType {
+        case .all:
+            filteredDataList = result
+        case .domestic:
+            filteredDataList = result.filter{ $0.domestic_travel }
+        case .international:
+            filteredDataList = result.filter{ !$0.domestic_travel }
+        }
+
+        cityTableView.reloadData()
+    }
+    
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        view.endEditing(true)
     }
 }

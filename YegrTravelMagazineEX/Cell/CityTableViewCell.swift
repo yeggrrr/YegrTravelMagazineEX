@@ -45,6 +45,7 @@ class CityTableViewCell: UITableViewCell {
     func configureCell(data: City) {
         let image = data.city_image
         guard let url = URL(string: image) else { return }
+        mainImageView.kf.indicatorType = .activity
         mainImageView.kf.setImage(with: url)
         cityNameLabel.text = "\(data.city_name) | \(data.city_english_name)"
         travelDestinationNameLabel.text = data.city_explain

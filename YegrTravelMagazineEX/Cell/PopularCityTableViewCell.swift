@@ -72,6 +72,7 @@ class PopularCityTableViewCell: UITableViewCell {
         let url = URL(string: image)
         let heartImage = data.like ?? false ? UIImage(systemName: "heart.fill") : UIImage(systemName: "heart")
         saveLabel.text = data.titleDescription
+        detailImageView.kf.indicatorType = .activity
         detailImageView.kf.setImage(with: url, placeholder: UIImage(systemName: "leaf.fill"))
         likeButton.setImage(heartImage, for: .normal)
     }

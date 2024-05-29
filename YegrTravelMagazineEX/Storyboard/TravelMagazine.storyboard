@@ -350,7 +350,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Q7b-gc-IKZ">
+                            <searchBar contentMode="redraw" showsSearchResultsButton="YES" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q7b-gc-IKZ">
                                 <rect key="frame" x="0.0" y="91" width="428" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -391,6 +391,7 @@
                     <connections>
                         <outlet property="citySegmentedControl" destination="rQn-7f-M5w" id="7Do-Fr-mzs"/>
                         <outlet property="cityTableView" destination="39V-YW-5xu" id="HnJ-BO-oD9"/>
+                        <outlet property="searchBar" destination="Q7b-gc-IKZ" id="gyf-3d-Rgy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rrk-fn-h8G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
