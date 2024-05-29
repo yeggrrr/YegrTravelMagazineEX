@@ -116,13 +116,13 @@ extension CityViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         isFiltered = true
         guard let searchText = searchBar.text?.lowercased() else { return }
-        
         let matchedNameList = CityInfo.city.filter{ $0.city_name.lowercased().contains(searchText) }
         let matchedEnglishNameList = CityInfo.city.filter{ $0.city_english_name.lowercased().contains(searchText) }
         let matchedExplainList = CityInfo.city.filter{ $0.city_explain.lowercased().contains(searchText) }
         
         let searchedList = matchedNameList + matchedEnglishNameList + matchedExplainList
         let result = Array(Set(searchedList))
+        
         switch filterType {
         case .all:
             filteredDataList = result
@@ -131,7 +131,17 @@ extension CityViewController: UISearchBarDelegate {
         case .international:
             filteredDataList = result.filter{ !$0.domestic_travel }
         }
-
+        
+        if searchText == "" {
+            filteredDataList = cityList
+            citySegmentedControl.selectedSegmentIndex = 0
+            
+            let alert = UIAlertController(title: "검색어를 입력해주세요!", message: nil, preferredStyle: .alert)
+            let okButton = UIAlertAction(title: "확인", style: .default)
+            alert.addAction(okButton)
+            present(alert, animated: true)
+        }
+        
         cityTableView.reloadData()
     }
     
