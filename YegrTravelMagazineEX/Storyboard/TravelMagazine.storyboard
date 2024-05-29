@@ -283,11 +283,12 @@
                         <segue destination="661-Vk-evW" kind="relationship" relationship="viewControllers" id="dJb-xx-kVp"/>
                         <segue destination="DdS-dM-Ssh" kind="relationship" relationship="viewControllers" id="ZRa-4P-303"/>
                         <segue destination="ZZ7-fO-zIP" kind="relationship" relationship="viewControllers" id="Z5S-Hc-aAZ"/>
+                        <segue destination="QJ8-9d-yU1" kind="relationship" relationship="viewControllers" id="xQX-0U-ERe"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mvw-y7-Mz4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2805" y="-32"/>
+            <point key="canvasLocation" x="2672" y="332"/>
         </scene>
         <!--jjj-->
         <scene sceneID="ui1-dv-WDk">
@@ -341,6 +342,51 @@
             </objects>
             <point key="canvasLocation" x="4552" y="667"/>
         </scene>
+        <!--City View Controller-->
+        <scene sceneID="YNU-iK-sR8">
+            <objects>
+                <viewController id="XEL-PE-jjW" customClass="CityViewController" customModule="YegrTravelMagazineEX" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qUZ-zF-Fba">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="rQn-7f-M5w">
+                                <rect key="frame" x="10" y="101" width="408" height="32"/>
+                                <color key="backgroundColor" red="0.94706427189999998" green="0.80744258710000005" blue="0.90331321610000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <segments>
+                                    <segment title="전체"/>
+                                    <segment title="국내"/>
+                                    <segment title="해외"/>
+                                </segments>
+                                <color key="tintColor" red="1" green="0.6383601002" blue="0.74061062320000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="39V-YW-5xu">
+                                <rect key="frame" x="10" y="137" width="408" height="706"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="TXr-ph-3o9"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="TXr-ph-3o9" firstAttribute="bottom" secondItem="39V-YW-5xu" secondAttribute="bottom" id="6Yl-GX-g55"/>
+                            <constraint firstItem="39V-YW-5xu" firstAttribute="leading" secondItem="TXr-ph-3o9" secondAttribute="leading" constant="10" id="G31-3H-y53"/>
+                            <constraint firstItem="TXr-ph-3o9" firstAttribute="trailing" secondItem="rQn-7f-M5w" secondAttribute="trailing" constant="10" id="OyB-eN-hLi"/>
+                            <constraint firstItem="rQn-7f-M5w" firstAttribute="top" secondItem="TXr-ph-3o9" secondAttribute="top" constant="10" id="VXD-jy-YOk"/>
+                            <constraint firstItem="TXr-ph-3o9" firstAttribute="trailing" secondItem="39V-YW-5xu" secondAttribute="trailing" constant="10" id="b28-LH-wHc"/>
+                            <constraint firstItem="rQn-7f-M5w" firstAttribute="leading" secondItem="TXr-ph-3o9" secondAttribute="leading" constant="10" id="dl0-XQ-ufT"/>
+                            <constraint firstItem="39V-YW-5xu" firstAttribute="top" secondItem="rQn-7f-M5w" secondAttribute="bottom" constant="5" id="eA5-zl-weH"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="2R1-eH-U3D"/>
+                    <connections>
+                        <outlet property="citySegmentedControl" destination="rQn-7f-M5w" id="7Do-Fr-mzs"/>
+                        <outlet property="cityTableView" destination="39V-YW-5xu" id="HnJ-BO-oD9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rrk-fn-h8G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4227" y="1359"/>
+        </scene>
         <!--Popular-->
         <scene sceneID="yoG-Vg-nGD">
             <objects>
@@ -360,6 +406,25 @@
             </objects>
             <point key="canvasLocation" x="3784" y="667"/>
         </scene>
+        <!--City-->
+        <scene sceneID="mW3-uP-aCd">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QJ8-9d-yU1" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="City" image="magnifyingglass" catalog="system" id="q9J-HJ-tXP"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wDP-mT-0xh">
+                        <rect key="frame" x="0.0" y="47" width="428" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="XEL-PE-jjW" kind="relationship" relationship="rootViewController" id="7CQ-Dh-inA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8gg-uN-hcS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3521" y="1360"/>
+        </scene>
     </scenes>
     <designables>
         <designable name="n2F-wu-pYy">
@@ -370,6 +435,7 @@
         <image name="airplane" catalog="system" width="128" height="115"/>
         <image name="fork.knife" catalog="system" width="94" height="128"/>
         <image name="heart" catalog="system" width="128" height="107"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="map.fill" catalog="system" width="128" height="110"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
