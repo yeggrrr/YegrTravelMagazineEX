@@ -82,7 +82,9 @@ class SearchRestaurantTableViewController: UITableViewController {
     }
     
     @objc func mapButtonClicked() {
-        
+        let sb = UIStoryboard(name: "RestaurantMap", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "RestaurantMapViewController") as! RestaurantMapViewController
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func likeButtonClicked(sender: UIButton) {
