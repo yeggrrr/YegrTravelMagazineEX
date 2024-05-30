@@ -8,7 +8,10 @@
 import UIKit
 
 class AdvertisementViewController: UIViewController {
-
+    @IBOutlet var adTitleLabel: UILabel!
+    @IBOutlet var adImageView: UIImageView!
+    @IBOutlet var adDescriptionLabel: UILabel!
+    
     var AdDetailData: Travel?
     
     override func viewDidLoad() {
@@ -26,7 +29,24 @@ class AdvertisementViewController: UIViewController {
     }
     
     func configureUI() {
+        // adTitleLabel
+        adTitleLabel.text = AdDetailData?.title
+        adTitleLabel.textColor = .darkGray
+        adTitleLabel.textAlignment = .center
+        adTitleLabel.font = .boldSystemFont(ofSize: 22)
+        adTitleLabel.numberOfLines = 0
         
+        // adImageView
+        adImageView.image = UIImage(named: "SeSAC")
+        adImageView.contentMode = .scaleAspectFit
+        adImageView.layer.cornerRadius = 10
+        
+        // adDescriptionLabel
+        adDescriptionLabel.text = "Welcome to SeSAC~^^"
+        adDescriptionLabel.textAlignment = .center
+        adDescriptionLabel.textColor = .systemGreen
+        adDescriptionLabel.font = .boldSystemFont(ofSize: 25)
+        adDescriptionLabel.numberOfLines = 0
     }
     
     @objc func xBarButtonClicked() {
