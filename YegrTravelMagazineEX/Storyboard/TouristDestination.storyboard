@@ -15,9 +15,55 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aRj-84-uEu">
+                                <rect key="frame" x="20" y="69" width="353" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="39K-ye-7st">
+                                <rect key="frame" x="39.333333333333343" y="109.99999999999997" width="314.33333333333326" height="419.33333333333326"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="39K-ye-7st" secondAttribute="height" multiplier="3:4" id="8h2-f3-dWx"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZr-bU-AxE">
+                                <rect key="frame" x="20" y="549.33333333333337" width="353" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VWb-1c-XyX">
+                                <rect key="frame" x="20" y="580.33333333333337" width="353" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="mZr-bU-AxE" firstAttribute="top" secondItem="39K-ye-7st" secondAttribute="bottom" constant="20" id="3S9-1Q-vjX"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="VWb-1c-XyX" secondAttribute="trailing" constant="20" id="6XL-8W-75b"/>
+                            <constraint firstItem="VWb-1c-XyX" firstAttribute="top" secondItem="mZr-bU-AxE" secondAttribute="bottom" constant="10" id="BPg-Ur-7PZ"/>
+                            <constraint firstItem="39K-ye-7st" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="Cwh-Uf-7ar"/>
+                            <constraint firstItem="mZr-bU-AxE" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="IZ1-N2-aDN"/>
+                            <constraint firstItem="VWb-1c-XyX" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="Nwg-RJ-iPt"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="mZr-bU-AxE" secondAttribute="trailing" constant="20" id="Sg4-3c-UZY"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="aRj-84-uEu" secondAttribute="trailing" constant="20" id="W05-OT-iOc"/>
+                            <constraint firstItem="39K-ye-7st" firstAttribute="width" secondItem="vDu-zF-Fre" secondAttribute="width" multiplier="0.8" id="YN8-8H-OLJ"/>
+                            <constraint firstItem="aRj-84-uEu" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="YU3-ye-sxX"/>
+                            <constraint firstItem="aRj-84-uEu" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="ay2-sU-F0Q"/>
+                            <constraint firstItem="39K-ye-7st" firstAttribute="top" secondItem="aRj-84-uEu" secondAttribute="bottom" constant="20" id="dAu-2r-Ozs"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="mZr-bU-AxE" id="wG5-2F-2kj"/>
+                        <outlet property="gradeSaveLabel" destination="VWb-1c-XyX" id="aIk-MZ-Sgj"/>
+                        <outlet property="posterImageView" destination="39K-ye-7st" id="aJY-iO-yOh"/>
+                        <outlet property="titleLabel" destination="aRj-84-uEu" id="hhw-wA-nK0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

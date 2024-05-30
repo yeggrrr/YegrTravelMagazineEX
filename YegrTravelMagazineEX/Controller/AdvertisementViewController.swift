@@ -9,10 +9,13 @@ import UIKit
 
 class AdvertisementViewController: UIViewController {
 
+    var AdDetailData: Travel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         navigationUI()
+        configureUI()
     }
     
     func navigationUI() {
@@ -20,6 +23,10 @@ class AdvertisementViewController: UIViewController {
         let left = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: self, action: #selector(xBarButtonClicked))
         navigationItem.leftBarButtonItem = left
         navigationItem.leftBarButtonItem?.tintColor = UIColor(named: "ButtonColor")
+    }
+    
+    func configureUI() {
+        
     }
     
     @objc func xBarButtonClicked() {

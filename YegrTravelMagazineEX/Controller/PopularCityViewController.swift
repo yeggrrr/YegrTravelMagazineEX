@@ -68,12 +68,14 @@ extension PopularCityViewController: UITableViewDelegate, UITableViewDataSource 
         if data.ad == true{
             let sb = UIStoryboard(name: "Advertisement", bundle: nil)
             let vc = sb.instantiateViewController(withIdentifier: "AdvertisementViewController") as! AdvertisementViewController
+            vc.AdDetailData = data
             let nav = UINavigationController(rootViewController: vc)
             nav.modalPresentationStyle = .fullScreen
             navigationController?.present(nav, animated: true)
         } else {
             let sb = UIStoryboard(name: "TouristDestination", bundle: nil)
             let vc = sb.instantiateViewController(withIdentifier: "TouristDestinationViewController") as! TouristDestinationViewController
+            vc.touristDetailData = data
             navigationController?.pushViewController(vc, animated: true)
         }
     }
