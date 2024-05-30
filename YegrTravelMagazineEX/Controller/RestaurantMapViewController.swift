@@ -82,7 +82,6 @@ class RestaurantMapViewController: UIViewController {
             restaurantInfo = RestaurantList.restaurantArray
         } else {
             for item in categoryList {
-                print(item)
                 if categoryType == item.type {
                     restaurantInfo = RestaurantList.restaurantArray.filter{ $0.category == item.category }
                     break
