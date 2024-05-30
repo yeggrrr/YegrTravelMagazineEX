@@ -48,6 +48,8 @@ class CityViewController: UIViewController {
         noticeLabel.textColor = .darkGray
         noticeLabel.font = .boldSystemFont(ofSize: 20)
         noticeLabel.textAlignment = .center
+        
+        cityTableView.keyboardDismissMode = .onDrag
     }
     
     func setSegmentControll() {
@@ -77,14 +79,12 @@ class CityViewController: UIViewController {
         switch filterType {
         case .all:
             filteredDataList = cityList
-            noticeLabel.isHidden = true
         case .domestic:
             filteredDataList = cityList.filter{ $0.domestic_travel }
-            noticeLabel.isHidden = true
         case .international:
             filteredDataList = cityList.filter{ !$0.domestic_travel }
-            noticeLabel.isHidden = true
         }
+        noticeLabel.isHidden = true
         cityTableView.reloadData()
     }
     
@@ -106,7 +106,6 @@ class CityViewController: UIViewController {
 }
 
 extension CityViewController: UITableViewDelegate, UITableViewDataSource {
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
     }

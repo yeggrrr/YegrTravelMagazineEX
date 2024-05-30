@@ -61,6 +61,7 @@ class RestaurantMapViewController: UIViewController {
         annotation.coordinate = currentLocation
         annotation.title = "내 위치"
         restaurantMapView.addAnnotation(annotation)
+        categorySegmentControl.selectedSegmentIndex = 0
     }
     
     func setSegmentControll() {
@@ -68,7 +69,7 @@ class RestaurantMapViewController: UIViewController {
     }
     
     func setLocation(latitude: Double, longitude: Double, name: String ) {
-        let currentLocation = CLLocationCoordinate2D(latitude: latitude, longitude: latitude)
+        let currentLocation = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         restaurantMapView.region = MKCoordinateRegion(center: currentLocation, latitudinalMeters: 400, longitudinalMeters: 400)
         
         let annotation = MKPointAnnotation()
