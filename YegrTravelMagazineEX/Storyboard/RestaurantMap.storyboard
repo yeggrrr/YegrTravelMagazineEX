@@ -17,19 +17,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="woc-up-JMv">
-                                <rect key="frame" x="76" y="309" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="GGb-gz-DZ4">
+                                <rect key="frame" x="5" y="59" width="383" height="32"/>
+                                <color key="backgroundColor" red="0.94706427189999998" green="0.80744258710000005" blue="0.90331321610000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <segments>
+                                    <segment title="전체"/>
+                                    <segment title="한식"/>
+                                    <segment title="카페"/>
+                                    <segment title="분식"/>
+                                    <segment title="중식"/>
+                                    <segment title="일식"/>
+                                    <segment title="양식"/>
+                                    <segment title="경양식"/>
+                                </segments>
+                                <color key="tintColor" red="0.85554929120000001" green="0.54667125549999995" blue="0.63163516760000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </segmentedControl>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="woc-up-JMv">
+                                <rect key="frame" x="0.0" y="95" width="393" height="723"/>
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="woc-up-JMv" secondAttribute="trailing" id="1oh-T5-6y9"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="GGb-gz-DZ4" secondAttribute="trailing" constant="5" id="BAA-Yh-fhy"/>
+                            <constraint firstItem="GGb-gz-DZ4" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="5" id="NQj-NM-S9P"/>
+                            <constraint firstItem="woc-up-JMv" firstAttribute="top" secondItem="GGb-gz-DZ4" secondAttribute="bottom" constant="5" id="Qdn-hm-R56"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="woc-up-JMv" secondAttribute="bottom" id="SOS-fw-9PF"/>
+                            <constraint firstItem="GGb-gz-DZ4" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="amQ-cU-gMh"/>
+                            <constraint firstItem="woc-up-JMv" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="peF-oi-9jb"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="categorySegmentControl" destination="GGb-gz-DZ4" id="2Bv-ao-5Te"/>
+                        <outlet property="restaurantMapView" destination="woc-up-JMv" id="zAo-Hg-SiE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="91" y="4"/>
+            <point key="canvasLocation" x="90.839694656488547" y="3.5211267605633805"/>
         </scene>
     </scenes>
     <resources>

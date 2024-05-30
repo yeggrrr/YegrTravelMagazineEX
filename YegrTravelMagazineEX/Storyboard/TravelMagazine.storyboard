@@ -365,7 +365,7 @@
                                     <segment title="국내"/>
                                     <segment title="해외"/>
                                 </segments>
-                                <color key="tintColor" red="1" green="0.6383601002" blue="0.74061062320000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" red="0.85554929120000001" green="0.54667125549999995" blue="0.63163516760000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="39V-YW-5xu">
                                 <rect key="frame" x="10" y="188" width="408" height="655"/>
