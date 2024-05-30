@@ -25,6 +25,9 @@ class SearchRestaurantTableViewController: UITableViewController {
     func configureUI() {
         // Navigation title
         title = "Search"
+        let left = UIBarButtonItem(image: UIImage(systemName: "map"), style: .plain, target: self, action: #selector(mapButtonClicked))
+        navigationItem.leftBarButtonItem = left
+        navigationItem.leftBarButtonItem?.tintColor = UIColor(named: "ButtonColor")
         
         // TableView
         tableView.keyboardDismissMode = .onDrag
@@ -76,6 +79,10 @@ class SearchRestaurantTableViewController: UITableViewController {
         
         tableView.reloadData()
         view.endEditing(true)
+    }
+    
+    @objc func mapButtonClicked() {
+        
     }
     
     @objc func likeButtonClicked(sender: UIButton) {

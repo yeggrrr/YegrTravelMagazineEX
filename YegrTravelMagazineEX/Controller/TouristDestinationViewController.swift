@@ -57,7 +57,7 @@ class TouristDestinationViewController: UIViewController {
         gradeSaveLabel.text = "평점: \(grade)점 | 공감: \(save)명"
         gradeSaveLabel.textColor = .systemCyan
         gradeSaveLabel.textAlignment = .center
-        gradeSaveLabel.font = .systemFont(ofSize: 15)
+        gradeSaveLabel.font = .boldSystemFont(ofSize: 15)
         descriptionLabel.numberOfLines = 0
     }
     
