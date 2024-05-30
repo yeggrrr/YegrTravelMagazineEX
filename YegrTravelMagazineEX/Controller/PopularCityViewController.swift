@@ -10,7 +10,6 @@ import Kingfisher
 import MarqueeLabel
 
 class PopularCityViewController: UIViewController {
-
     @IBOutlet var popularCityTableView: UITableView!
     
     let travelData = TravelInfo.travel

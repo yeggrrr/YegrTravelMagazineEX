@@ -371,9 +371,8 @@
                                 <rect key="frame" x="10" y="188" width="408" height="655"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kQj-Qg-3iO">
-                                <rect key="frame" x="10" y="490" width="408" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cTT-2f-cWZ">
+                                <rect key="frame" x="193" y="505" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -384,7 +383,9 @@
                         <constraints>
                             <constraint firstItem="Q7b-gc-IKZ" firstAttribute="leading" secondItem="TXr-ph-3o9" secondAttribute="leading" id="09y-TK-oyo"/>
                             <constraint firstItem="39V-YW-5xu" firstAttribute="bottom" secondItem="TXr-ph-3o9" secondAttribute="bottom" id="7Lm-fR-meF"/>
+                            <constraint firstItem="cTT-2f-cWZ" firstAttribute="centerY" secondItem="39V-YW-5xu" secondAttribute="centerY" id="D5B-dm-uN0"/>
                             <constraint firstItem="39V-YW-5xu" firstAttribute="leading" secondItem="TXr-ph-3o9" secondAttribute="leading" constant="10" id="G31-3H-y53"/>
+                            <constraint firstItem="cTT-2f-cWZ" firstAttribute="centerX" secondItem="39V-YW-5xu" secondAttribute="centerX" id="Hwb-Be-7cO"/>
                             <constraint firstItem="TXr-ph-3o9" firstAttribute="trailing" secondItem="rQn-7f-M5w" secondAttribute="trailing" constant="10" id="OyB-eN-hLi"/>
                             <constraint firstItem="39V-YW-5xu" firstAttribute="top" secondItem="rQn-7f-M5w" secondAttribute="bottom" constant="5" id="Xln-OP-5Ni"/>
                             <constraint firstItem="TXr-ph-3o9" firstAttribute="trailing" secondItem="39V-YW-5xu" secondAttribute="trailing" constant="10" id="b28-LH-wHc"/>
@@ -398,7 +399,7 @@
                     <connections>
                         <outlet property="citySegmentedControl" destination="rQn-7f-M5w" id="7Do-Fr-mzs"/>
                         <outlet property="cityTableView" destination="39V-YW-5xu" id="HnJ-BO-oD9"/>
-                        <outlet property="noticeLabel" destination="kQj-Qg-3iO" id="YFT-hT-1Jt"/>
+                        <outlet property="noticeLabel" destination="cTT-2f-cWZ" id="Pg6-0A-vZN"/>
                         <outlet property="searchBar" destination="Q7b-gc-IKZ" id="gyf-3d-Rgy"/>
                     </connections>
                 </viewController>

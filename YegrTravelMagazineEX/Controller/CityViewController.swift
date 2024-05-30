@@ -56,6 +56,7 @@ class CityViewController: UIViewController {
     
     func setSearchBar() {
         searchBar.placeholder = "입력해주세요."
+        searchBar.tintColor = .darkGray
         // cancelButton Color
         let cancelButtonAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "ButtonColor")]
         UIBarButtonItem.appearance().setTitleTextAttributes(cancelButtonAttributes as [NSAttributedString.Key : Any] , for: .normal)
@@ -72,6 +73,21 @@ class CityViewController: UIViewController {
         }
     }
     
+    func updateCityList() {
+        switch filterType {
+        case .all:
+            filteredDataList = cityList
+            noticeLabel.isHidden = true
+        case .domestic:
+            filteredDataList = cityList.filter{ $0.domestic_travel }
+            noticeLabel.isHidden = true
+        case .international:
+            filteredDataList = cityList.filter{ !$0.domestic_travel }
+            noticeLabel.isHidden = true
+        }
+        cityTableView.reloadData()
+    }
+    
     @objc func segmentValueChanged(segment: UISegmentedControl) {
         isFiltered = true
         
@@ -86,21 +102,6 @@ class CityViewController: UIViewController {
             break
         }
         updateCityList()
-    }
-    
-    func updateCityList() {
-        switch filterType {
-        case .all:
-            filteredDataList = cityList
-            noticeLabel.isHidden = true
-        case .domestic:
-            filteredDataList = cityList.filter{ $0.domestic_travel }
-            noticeLabel.isHidden = true
-        case .international:
-            filteredDataList = cityList.filter{ !$0.domestic_travel }
-            noticeLabel.isHidden = true
-        }
-        cityTableView.reloadData()
     }
 }
 
@@ -161,8 +162,7 @@ extension CityViewController: UISearchBarDelegate {
     
         cityTableView.reloadData()
     }
-    
-    
+
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         view.endEditing(true)
     }

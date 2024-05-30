@@ -25,5 +25,4 @@ class TouristDestinationViewController: UIViewController {
     @objc func xBarButtonClicked() {
         navigationController?.popViewController(animated: true)
     }
-
 }
