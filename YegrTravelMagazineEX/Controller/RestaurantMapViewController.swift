@@ -23,9 +23,19 @@ class RestaurantMapViewController: UIViewController {
     @IBOutlet var restaurantMapView: MKMapView!
     @IBOutlet var categorySegmentControl: UISegmentedControl!
     
+    let categoryList: [(category: String, type: CategoryType)] = [
+        ("전체", .all),
+        ("한식", .korean),
+        ("카페", .cafe),
+        ("분식", .snack),
+        ("중식", .chinese),
+        ("일식", .japan),
+        ("양식", .western),
+        ("경양식", .lightWastern)
+    ]
+    
     var categoryType: CategoryType = .all
     let restaurantList = RestaurantList.restaurantArray
-    
     var restaurantInfo: [Restaurant] = []
     
     override func viewDidLoad() {
@@ -59,7 +69,7 @@ class RestaurantMapViewController: UIViewController {
     
     func setLocation(latitude: Double, longitude: Double, name: String ) {
         let currentLocation = CLLocationCoordinate2D(latitude: latitude, longitude: latitude)
-        restaurantMapView.region = MKCoordinateRegion(center: currentLocation, latitudinalMeters: 500, longitudinalMeters: 500)
+        restaurantMapView.region = MKCoordinateRegion(center: currentLocation, latitudinalMeters: 400, longitudinalMeters: 400)
         
         let annotation = MKPointAnnotation()
         annotation.coordinate = currentLocation
@@ -68,24 +78,17 @@ class RestaurantMapViewController: UIViewController {
     }
     
     func updateMap() {
-            switch categoryType {
-            case .all:
-                restaurantInfo = RestaurantList.restaurantArray
-            case .korean:
-                restaurantInfo = RestaurantList.restaurantArray.filter{ $0.category == "한식"}
-            case .cafe:
-                restaurantInfo = RestaurantList.restaurantArray.filter{ $0.category == "카페"}
-            case .snack:
-                restaurantInfo = RestaurantList.restaurantArray.filter{ $0.category == "분식"}
-            case .chinese:
-                restaurantInfo = RestaurantList.restaurantArray.filter{ $0.category == "중식"}
-            case .japan:
-                restaurantInfo = RestaurantList.restaurantArray.filter{ $0.category == "일식"}
-            case .western:
-                restaurantInfo = RestaurantList.restaurantArray.filter{ $0.category == "양식"}
-            case .lightWastern:
-                restaurantInfo = RestaurantList.restaurantArray.filter{ $0.category == "경양식"}
+        if categoryType == .all {
+            restaurantInfo = RestaurantList.restaurantArray
+        } else {
+            for item in categoryList {
+                print(item)
+                if categoryType == item.type {
+                    restaurantInfo = RestaurantList.restaurantArray.filter{ $0.category == item.category }
+                    break
+                }
             }
+        }
         
         restaurantMapView.removeAnnotations(restaurantMapView.annotations)
         for item in restaurantInfo {
@@ -98,27 +101,13 @@ class RestaurantMapViewController: UIViewController {
     }
     
     @objc func segmentValueChanged(segment: UISegmentedControl) {
-        switch segment.selectedSegmentIndex {
-        case 0:
+        let index = segment.selectedSegmentIndex
+        if let type = CategoryType(rawValue: index) {
+            categoryType = type
+        } else {
             categoryType = .all
-        case 1:
-            categoryType = .korean
-        case 2:
-            categoryType = .cafe
-        case 3:
-            categoryType = .snack
-        case 4:
-            categoryType = .chinese
-        case 5:
-            categoryType = .japan
-        case 6:
-            categoryType = .western
-        case 7:
-            categoryType = .lightWastern
-        default:
-            break
         }
+        
         updateMap()
     }
-
 }
