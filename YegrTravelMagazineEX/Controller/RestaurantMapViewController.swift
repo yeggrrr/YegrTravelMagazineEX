@@ -43,6 +43,7 @@ class RestaurantMapViewController: UIViewController {
 
         navigationUI()
         setSegmentControll()
+        setInitialMap()
     }
         
     func navigationUI() {
@@ -91,6 +92,13 @@ class RestaurantMapViewController: UIViewController {
         }
         
         restaurantMapView.removeAnnotations(restaurantMapView.annotations)
+        for item in restaurantInfo {
+            setLocation(latitude: item.latitude, longitude: item.longitude, name: item.name)
+        }
+    }
+    
+    func setInitialMap() {
+        restaurantInfo = RestaurantList.restaurantArray
         for item in restaurantInfo {
             setLocation(latitude: item.latitude, longitude: item.longitude, name: item.name)
         }
