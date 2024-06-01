@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum User: String, CaseIterable{
+enum User: String, CaseIterable {
     case hue = "Hue"
     case jack = "Jack"
     case bran = "Bran"
@@ -18,20 +18,7 @@ enum User: String, CaseIterable{
     
     var profileImage: String {
         switch self {
-        case User.hue:
-            return "Hue"
-        case User.jack:
-            return "Jack"
-        case User.bran:
-            return "Bran"
-        case User.den:
-            return "Den"
-        case User.user:
-            return "Yegr"
-        case User.other_friend:
-            return "내옆자리의앞자리에개발잘하는친구"
-        case User.simsim:
-            return "심심이"
+        default: return rawValue
         }
     }
 }
@@ -44,13 +31,13 @@ struct ChatRoom {
     var chatList: [Chat] = [] //채팅 화면에서 사용할 데이터
 }
 
+
 //채팅 화면에서 사용할 데이터 구조체
 struct Chat {
     let user: User
     let date: String
     let message: String
 }
-
 
 let mockChatList: [ChatRoom] = [
     ChatRoom(chatroomId: 1,
