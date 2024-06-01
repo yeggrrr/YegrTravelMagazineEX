@@ -103,7 +103,7 @@
         <scene sceneID="Hhz-LP-ztG">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="661-Vk-evW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="TRAVEL" image="airplane" catalog="system" selectedImage="airplane" id="dl2-0b-CuC"/>
+                    <tabBarItem key="tabBarItem" title="TRAVEL" image="airplane.circle" catalog="system" selectedImage="airplane.circle.fill" id="dl2-0b-CuC"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="9rx-nW-gcd">
                         <rect key="frame" x="0.0" y="47" width="428" height="44"/>
@@ -284,6 +284,7 @@
                         <segue destination="DdS-dM-Ssh" kind="relationship" relationship="viewControllers" id="ZRa-4P-303"/>
                         <segue destination="ZZ7-fO-zIP" kind="relationship" relationship="viewControllers" id="Z5S-Hc-aAZ"/>
                         <segue destination="QJ8-9d-yU1" kind="relationship" relationship="viewControllers" id="xQX-0U-ERe"/>
+                        <segue destination="2hl-4l-WTU" kind="relationship" relationship="viewControllers" id="ELa-FI-V0g"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mvw-y7-Mz4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -294,8 +295,8 @@
         <scene sceneID="ui1-dv-WDk">
             <objects>
                 <navigationController title="jjj" automaticallyAdjustsScrollViewInsets="NO" id="DdS-dM-Ssh" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Restaurant" id="kHe-j5-M4W">
-                        <imageReference key="image" image="fork.knife" catalog="system"/>
+                    <tabBarItem key="tabBarItem" title="Restaurant" selectedImage="fork.knife.circle.fill" catalog="system" id="kHe-j5-M4W">
+                        <imageReference key="image" image="fork.knife.circle" catalog="system"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="oZt-vw-dvz">
@@ -407,11 +408,21 @@
             </objects>
             <point key="canvasLocation" x="4226.6355140186915" y="1358.7473002159827"/>
         </scene>
+        <!--Chatting-->
+        <scene sceneID="s8R-2q-Vct">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Chatting" id="whM-5e-dTT" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="1TP-vG-cps"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fgs-fJ-YzB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2782" y="1584"/>
+        </scene>
         <!--Popular-->
         <scene sceneID="yoG-Vg-nGD">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZZ7-fO-zIP" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Popular" image="map.fill" catalog="system" id="QfE-cr-VCS"/>
+                    <tabBarItem key="tabBarItem" title="Popular" image="map" catalog="system" selectedImage="map.fill" id="QfE-cr-VCS"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="HGo-6r-wNJ">
                         <rect key="frame" x="0.0" y="47" width="428" height="44"/>
@@ -430,7 +441,7 @@
         <scene sceneID="mW3-uP-aCd">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QJ8-9d-yU1" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="City" image="magnifyingglass" catalog="system" id="q9J-HJ-tXP"/>
+                    <tabBarItem key="tabBarItem" title="City" image="magnifyingglass.circle" catalog="system" selectedImage="magnifyingglass.circle.fill" id="q9J-HJ-tXP"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="wDP-mT-0xh">
                         <rect key="frame" x="0.0" y="47" width="428" height="44"/>
@@ -445,6 +456,25 @@
             </objects>
             <point key="canvasLocation" x="3521" y="1360"/>
         </scene>
+        <!--Chat-->
+        <scene sceneID="5ka-F6-hmz">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2hl-4l-WTU" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Chat" image="message" catalog="system" selectedImage="message.fill" id="Icj-OQ-4L9"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="KE2-JK-3Rz">
+                        <rect key="frame" x="0.0" y="47" width="428" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="whM-5e-dTT" kind="relationship" relationship="rootViewController" id="7j2-ro-mUx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jDJ-Jw-eJq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2190" y="1584"/>
+        </scene>
     </scenes>
     <designables>
         <designable name="n2F-wu-pYy">
@@ -452,11 +482,17 @@
         </designable>
     </designables>
     <resources>
-        <image name="airplane" catalog="system" width="128" height="115"/>
-        <image name="fork.knife" catalog="system" width="94" height="128"/>
+        <image name="airplane.circle" catalog="system" width="128" height="123"/>
+        <image name="airplane.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="fork.knife.circle" catalog="system" width="128" height="123"/>
+        <image name="fork.knife.circle.fill" catalog="system" width="128" height="123"/>
         <image name="heart" catalog="system" width="128" height="107"/>
-        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
+        <image name="magnifyingglass.circle" catalog="system" width="128" height="123"/>
+        <image name="magnifyingglass.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="map" catalog="system" width="128" height="112"/>
         <image name="map.fill" catalog="system" width="128" height="110"/>
+        <image name="message" catalog="system" width="128" height="116"/>
+        <image name="message.fill" catalog="system" width="128" height="114"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

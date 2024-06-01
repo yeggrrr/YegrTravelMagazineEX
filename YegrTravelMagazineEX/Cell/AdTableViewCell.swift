@@ -37,5 +37,4 @@ class AdTableViewCell: UITableViewCell {
         adLabel.text = data.title
         backgoundColorView.backgroundColor = UIColor(named: randomColor)
     }
-    
 }
