@@ -15,6 +15,8 @@ class ChattingTableViewCell: UITableViewCell {
     @IBOutlet var recentChatLabel: UILabel!
     @IBOutlet var recentChatDateLabel: UILabel!
     
+    let profileImageList: [String] = ["Hue", "Jack", "Bran", "Den", "내옆자리의앞자리에개발잘하는친구", "심심이"]
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         configureUI()
