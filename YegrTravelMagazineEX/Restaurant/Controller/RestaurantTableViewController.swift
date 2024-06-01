@@ -1,5 +1,5 @@
 //
-//  SearchRestaurantTableViewController.swift
+//  RestaurantTableViewController.swift
 //  YegrTravelMagazineEX
 //
 //  Created by YJ on 5/25/24.
@@ -9,7 +9,7 @@ import UIKit
 import Kingfisher
 import MarqueeLabel
 
-class SearchRestaurantTableViewController: UITableViewController {
+class RestaurantTableViewController: UITableViewController {
     @IBOutlet var searchTextField: UITextField!
     @IBOutlet var searchButton: UIButton!
     
@@ -24,7 +24,7 @@ class SearchRestaurantTableViewController: UITableViewController {
     
     func configureUI() {
         // Navigation title
-        title = "Search"
+        title = "Restaurant"
         let left = UIBarButtonItem(image: UIImage(systemName: "map"), style: .plain, target: self, action: #selector(mapButtonClicked))
         navigationItem.leftBarButtonItem = left
         navigationItem.leftBarButtonItem?.tintColor = UIColor(named: "ButtonColor")
@@ -104,7 +104,7 @@ class SearchRestaurantTableViewController: UITableViewController {
     }
 }
 
-extension SearchRestaurantTableViewController {
+extension RestaurantTableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 180
     }
@@ -114,7 +114,7 @@ extension SearchRestaurantTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchRestaurantTableViewCell.identifier, for: indexPath) as? SearchRestaurantTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: RestaurantTableViewCell.identifier, for: indexPath) as? RestaurantTableViewCell else { return UITableViewCell() }
         
         let item = searchList[indexPath.row]
         let heartImage = item.like ? UIImage(systemName: "heart.fill") : UIImage(systemName: "heart")

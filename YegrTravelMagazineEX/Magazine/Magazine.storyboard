@@ -12,13 +12,13 @@
         <!--YEGR TRAVEL-->
         <scene sceneID="ifC-kn-0e9">
             <objects>
-                <tableViewController id="ccs-pG-wcb" customClass="TravelMagazineTableViewController" customModule="YegrTravelMagazineEX" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="ccs-pG-wcb" customClass="MagazineTableViewController" customModule="YegrTravelMagazineEX" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="MIC-tt-OeG">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TravelMagazineTableViewCell" rowHeight="536" id="SSS-8s-bDw" customClass="TravelMagazineTableViewCell" customModule="YegrTravelMagazineEX" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MagazineTableViewCell" rowHeight="536" id="SSS-8s-bDw" customClass="MagazineTableViewCell" customModule="YegrTravelMagazineEX" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="50" width="428" height="536"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SSS-8s-bDw" id="ioF-H3-07v">
@@ -99,11 +99,11 @@
             </objects>
             <point key="canvasLocation" x="4551.8691588785041" y="-702.37580993520521"/>
         </scene>
-        <!--TRAVEL-->
+        <!--Magazine-->
         <scene sceneID="Hhz-LP-ztG">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="661-Vk-evW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="TRAVEL" image="airplane.circle" catalog="system" selectedImage="airplane.circle.fill" id="dl2-0b-CuC"/>
+                    <tabBarItem key="tabBarItem" title="Magazine" image="airplane.circle" catalog="system" selectedImage="airplane.circle.fill" id="dl2-0b-CuC"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="9rx-nW-gcd">
                         <rect key="frame" x="0.0" y="47" width="428" height="44"/>
@@ -118,10 +118,10 @@
             </objects>
             <point key="canvasLocation" x="3785" y="-702"/>
         </scene>
-        <!--Search Restaurant Table View Controller-->
+        <!--Restaurant Table View Controller-->
         <scene sceneID="Hiq-gq-b9y">
             <objects>
-                <tableViewController id="6DZ-Xk-kAH" customClass="SearchRestaurantTableViewController" customModule="YegrTravelMagazineEX" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="6DZ-Xk-kAH" customClass="RestaurantTableViewController" customModule="YegrTravelMagazineEX" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="eaf-um-6Ba">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -161,7 +161,7 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchRestaurantTableViewCell" rowHeight="160" id="wKx-aq-6sg" customClass="SearchRestaurantTableViewCell" customModule="YegrTravelMagazineEX" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RestaurantTableViewCell" rowHeight="160" id="wKx-aq-6sg" customClass="RestaurantTableViewCell" customModule="YegrTravelMagazineEX" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="117" width="428" height="160"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wKx-aq-6sg" id="Pit-fU-QIV">
@@ -418,11 +418,11 @@
             </objects>
             <point key="canvasLocation" x="2782" y="1584"/>
         </scene>
-        <!--Popular-->
+        <!--Travel-->
         <scene sceneID="yoG-Vg-nGD">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZZ7-fO-zIP" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Popular" image="map" catalog="system" selectedImage="map.fill" id="QfE-cr-VCS"/>
+                    <tabBarItem key="tabBarItem" title="Travel" image="map" catalog="system" selectedImage="map.fill" id="QfE-cr-VCS"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="HGo-6r-wNJ">
                         <rect key="frame" x="0.0" y="47" width="428" height="44"/>

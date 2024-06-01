@@ -30,6 +30,21 @@ class ChattingViewController: UIViewController {
         chattingSearchBar.tintColor = .darkGray
         chattingSearchBar.keyboardType = .default
         chattingSearchBar.returnKeyType = .default
+        
+        // cancelButton Color
+        let cancelButtonAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "ButtonColor")]
+        UIBarButtonItem.appearance().setTitleTextAttributes(cancelButtonAttributes as [NSAttributedString.Key : Any] , for: .normal)
+        // searchBarTextField Color
+        if let textfield = chattingSearchBar.value(forKey: "searchField") as? UITextField {
+            textfield.backgroundColor = UIColor(named: "TextFieldBackgroundColor")
+            textfield.attributedPlaceholder = NSAttributedString(string: textfield.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+            textfield.textColor = UIColor.white
+            // 왼쪽 아이콘 이미지
+            if let leftView = textfield.leftView as? UIImageView {
+                leftView.image = leftView.image?.withRenderingMode(.alwaysTemplate)
+                leftView.tintColor = UIColor.white
+            }
+        }
     }
     
     func configureTableView() {

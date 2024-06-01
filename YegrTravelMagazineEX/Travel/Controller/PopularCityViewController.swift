@@ -17,7 +17,7 @@ class PopularCityViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = "도시 상세 정보"
+        navigationItem.title = "Travel"
         tableViewConfigure()
     }
     

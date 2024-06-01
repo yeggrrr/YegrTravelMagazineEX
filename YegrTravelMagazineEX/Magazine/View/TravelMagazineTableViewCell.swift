@@ -1,5 +1,5 @@
 //
-//  TravelMagazineTableViewCell.swift
+//  MagazineTableViewCell.swift
 //  YegrTravelMagazineEX
 //
 //  Created by YJ on 5/25/24.
@@ -7,8 +7,8 @@
 
 import UIKit
 
-class TravelMagazineTableViewCell: UITableViewCell {
-    static let identifier = "TravelMagazineTableViewCell"
+class MagazineTableViewCell: UITableViewCell {
+    static let identifier = "MagazineTableViewCell"
     
     @IBOutlet var posterImageView: UIImageView!
     @IBOutlet var titleLabel: UILabel!

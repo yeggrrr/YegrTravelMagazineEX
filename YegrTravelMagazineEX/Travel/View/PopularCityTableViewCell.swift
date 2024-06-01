@@ -44,7 +44,7 @@ class PopularCityTableViewCell: UITableViewCell {
         detailImageView.contentMode = .scaleAspectFill
         detailImageView.layer.cornerRadius = 8
         detailImageView.tintColor = .systemGray6
-        likeButton.tintColor = .white
+        likeButton.tintColor = UIColor(named: "TextFieldBackgroundColor")
     }
     
     func configureCell(data: Travel) {

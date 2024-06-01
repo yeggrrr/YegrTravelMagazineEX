@@ -34,7 +34,7 @@ class CityViewController: UIViewController {
     
     func configureUI() {
         // navigation title
-        navigationItem.title = "인기 도시"
+        navigationItem.title = "City"
         
         // tableview
         cityTableView.delegate = self

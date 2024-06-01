@@ -1,5 +1,5 @@
 //
-//  SearchRestaurantTableViewCell.swift
+//  RestaurantTableViewCell.swift
 //  YegrTravelMagazineEX
 //
 //  Created by YJ on 5/25/24.
@@ -8,8 +8,8 @@
 import UIKit
 import Kingfisher
 
-class SearchRestaurantTableViewCell: UITableViewCell {
-    static let identifier = "SearchRestaurantTableViewCell"
+class RestaurantTableViewCell: UITableViewCell {
+    static let identifier = "RestaurantTableViewCell"
     
     @IBOutlet var posterImageView: UIImageView!
     @IBOutlet var titleLabel: UILabel!
@@ -45,7 +45,7 @@ class SearchRestaurantTableViewCell: UITableViewCell {
         
         let defaultImage = UIImage(systemName: "heart")
         likeButton.setImage(defaultImage, for: .normal)
-        likeButton.tintColor = .white
+        likeButton.tintColor = UIColor(named: "TextFieldBackgroundColor")
     }
     
     func configureCell(item: Restaurant) {
