@@ -11,8 +11,12 @@ class ChattingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        navigationUI()
      
     }
 
+    func navigationUI() {
+        navigationItem.title = "YEGR TALK"
+    }
 }
