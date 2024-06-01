@@ -20,9 +20,27 @@ class ChattingTableViewCell: UITableViewCell {
         configureUI()
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        profileImageView.layer.cornerRadius = profileImageView.frame.height / 2
+    }
+    
     func configureUI() {
         profileImageView.contentMode = .scaleAspectFit
-        profileImageView.layer.cornerRadius = profileImageView.frame.width / 2
+        profileImageView.layer.borderWidth = 2
+        profileImageView.layer.borderColor = UIColor.lightGray.cgColor
+        
+        nicknameLabel.textAlignment = .left
+        nicknameLabel.textColor = .label
+        nicknameLabel.font = .boldSystemFont(ofSize: 17)
+        
+        recentChatLabel.textAlignment = .left
+        recentChatLabel.textColor = .darkGray
+        recentChatLabel.font = .systemFont(ofSize: 15)
+        
+        recentChatDateLabel.textAlignment = .right
+        recentChatDateLabel.textColor = .systemGray2
+        recentChatDateLabel.font = .systemFont(ofSize: 12)
     }
     
     func configureCell(index: Int) {
