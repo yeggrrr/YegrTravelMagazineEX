@@ -40,6 +40,10 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="HfK-9T-mWp" secondAttribute="trailing" id="nLp-Dr-MO9"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="chattingSearchBar" destination="HfK-9T-mWp" id="BH6-Zt-bTo"/>
+                        <outlet property="chattingTableView" destination="jXZ-jb-rF6" id="Bii-7K-qbd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum User: String {
+enum User: String, CaseIterable{
     case hue = "Hue"
     case jack = "Jack"
     case bran = "Bran"
