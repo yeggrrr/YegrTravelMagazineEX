@@ -15,6 +15,7 @@ class ChattingViewController: UIViewController {
         super.viewDidLoad()
         
         navigationUI()
+        searchBarUI()
         configureTableView()
     }
 
@@ -22,11 +23,23 @@ class ChattingViewController: UIViewController {
         navigationItem.title = "YEGR TALK"
     }
     
+    func searchBarUI() {
+        chattingSearchBar.delegate = self
+        
+        chattingSearchBar.placeholder = "친구 이름을 검색해보세요"
+        chattingSearchBar.tintColor = .darkGray
+        chattingSearchBar.keyboardType = .default
+        chattingSearchBar.returnKeyType = .default
+    }
+    
     func configureTableView() {
         chattingTableView.delegate = self
         chattingTableView.dataSource = self
+        
         let chatXib = UINib(nibName: ChattingTableViewCell.identifier, bundle: nil)
         chattingTableView.register(chatXib, forCellReuseIdentifier: ChattingTableViewCell.identifier)
+        
+        chattingTableView.keyboardDismissMode = .onDrag
     }
 }
 
@@ -36,7 +49,7 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return User.allCases.count
+        return mockChatList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -47,4 +60,8 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource {
         
         return chattingCell
     }
+}
+
+extension ChattingViewController: UISearchBarDelegate {
+    
 }

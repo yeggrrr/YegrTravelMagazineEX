@@ -5,34 +5,39 @@
 //  Created by YJ on 6/1/24.
 //
 
-import Foundation
+import UIKit
 
-enum User: String, CaseIterable {
+enum User: String {
     case hue = "Hue"
     case jack = "Jack"
     case bran = "Bran"
     case den = "Den"
-    case user = "Yegr"
+    case user // 본인
     case other_friend = "내옆자리의앞자리에개발잘하는친구"
     case simsim = "심심이"
     
-    var profileImage: String {
+    var name: String {
         switch self {
+        case .user: return "Yegr"
         default: return rawValue
         }
     }
+    
+    var profileImageName: String {
+        return name
+    }
 }
 
-//트래블톡 화면에서 사용할 데이터 구조체
+// 트래블톡 화면에서 사용할 데이터 구조체
 struct ChatRoom {
-    let chatroomId: Int //채팅방 고유 ID
-    let chatroomImage: [String] //채팅방에 속한 유저 이미지
-    let chatroomName: String //채팅방 이름
-    var chatList: [Chat] = [] //채팅 화면에서 사용할 데이터
+    let chatroomId: Int // 채팅방 고유 ID
+    let chatroomImage: [String] // 채팅방에 속한 유저 이미지
+    let chatroomName: String // 채팅방 이름
+    var chatList: [Chat] = [] // 채팅 화면에서 사용할 데이터
 }
 
 
-//채팅 화면에서 사용할 데이터 구조체
+// 채팅 화면에서 사용할 데이터 구조체
 struct Chat {
     let user: User
     let date: String
@@ -41,7 +46,7 @@ struct Chat {
 
 let mockChatList: [ChatRoom] = [
     ChatRoom(chatroomId: 1,
-             chatroomImage: [User.hue.profileImage, User.jack.profileImage, User.bran.profileImage, User.den.profileImage],
+             chatroomImage: [User.hue.profileImageName, User.jack.profileImageName, User.bran.profileImageName, User.den.profileImageName],
              chatroomName: "영등포 멘토방",
              chatList: [
                 Chat(user: .hue,
@@ -59,7 +64,7 @@ let mockChatList: [ChatRoom] = [
              ]
             ),
     ChatRoom(chatroomId: 2,
-             chatroomImage: [User.hue.profileImage],
+             chatroomImage: [User.hue.profileImageName],
              chatroomName: User.hue.rawValue,
              chatList: [
                 Chat(user: .hue,
@@ -79,7 +84,7 @@ let mockChatList: [ChatRoom] = [
                      message: "화이팅 ^^"),
              ]),
     ChatRoom(chatroomId: 3,
-             chatroomImage: [User.jack.profileImage],
+             chatroomImage: [User.jack.profileImageName],
              chatroomName: User.jack.rawValue,
              chatList: [
                 Chat(user: .jack,
@@ -90,7 +95,7 @@ let mockChatList: [ChatRoom] = [
                      message: "제.. 제가 푸쉬를 안했군요... 얼른 푸쉬하도록 하겠습니다..."),
                 Chat(user: .jack,
                      date: "2024-06-11 13:29",
-                     message: "00님~ 아직도 푸쉬가 안되어있네요 ^_^ 수업 끝나고 면담 진행하도록 할게요~~ 끝나고 남아주세요~"),
+                     message: "\(User.user.rawValue)님~ 아직도 푸쉬가 안되어있네요 ^_^ 수업 끝나고 면담 진행하도록 할게요~~ 끝나고 남아주세요~"),
                 Chat(user: .user,
                      date: "2024-06-11 13:31",
                      message: "넵.."),
@@ -105,7 +110,7 @@ let mockChatList: [ChatRoom] = [
                      message: "벌써 퇴근하세여?ㅎㅎㅎㅎㅎ"),
              ]),
     ChatRoom(chatroomId: 4,
-             chatroomImage: [User.bran.profileImage],
+             chatroomImage: [User.bran.profileImageName],
              chatroomName: User.bran.rawValue,
              chatList: [
                 Chat(user: .bran,
@@ -131,7 +136,7 @@ let mockChatList: [ChatRoom] = [
                      message: "개발자는 예외처리를 싫어합니다."),
              ]),
     ChatRoom(chatroomId: 5,
-             chatroomImage: [User.den.profileImage],
+             chatroomImage: [User.den.profileImageName],
              chatroomName: User.den.rawValue,
              chatList: [
                 Chat(user: .den,
@@ -166,7 +171,7 @@ let mockChatList: [ChatRoom] = [
                      message: "..."),
              ]),
     ChatRoom(chatroomId: 6,
-             chatroomImage: [User.other_friend.profileImage],
+             chatroomImage: [User.other_friend.profileImageName],
              chatroomName: User.other_friend.rawValue,
              chatList: [
                 Chat(user: .user,
@@ -187,7 +192,7 @@ let mockChatList: [ChatRoom] = [
              ]
             ),
     ChatRoom(chatroomId: 7,
-             chatroomImage: [User.simsim.profileImage],
+             chatroomImage: [User.simsim.profileImageName],
              chatroomName: User.simsim.rawValue,
              chatList: [
                 Chat(user: .user,

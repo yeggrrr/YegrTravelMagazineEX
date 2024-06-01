@@ -32,22 +32,50 @@ class ChattingTableViewCell: UITableViewCell {
         
         nicknameLabel.textAlignment = .left
         nicknameLabel.textColor = .label
-        nicknameLabel.font = .boldSystemFont(ofSize: 17)
+        nicknameLabel.font = .boldSystemFont(ofSize: 15)
         
         recentChatLabel.textAlignment = .left
         recentChatLabel.textColor = .darkGray
-        recentChatLabel.font = .systemFont(ofSize: 15)
+        recentChatLabel.font = .systemFont(ofSize: 14)
         
         recentChatDateLabel.textAlignment = .right
-        recentChatDateLabel.textColor = .systemGray2
-        recentChatDateLabel.font = .systemFont(ofSize: 12)
+        recentChatDateLabel.textColor = .systemGray
+        recentChatDateLabel.font = .systemFont(ofSize: 11)
     }
     
     func configureCell(index: Int) {
-        let userList = User.allCases
-        let imageName = userList[index].rawValue
-        profileImageView.image = UIImage(named: imageName)
-        
-        nicknameLabel.text = userList[index].rawValue
+        let chatRoom = mockChatList[index]
+        let lastChat = chatRoom.chatList.last
+        if let lastChat = lastChat {
+            profileImageView.image = UIImage(named: chatRoom.chatroomImage[0])
+            nicknameLabel.text = chatRoom.chatroomName
+            recentChatLabel.text = lastChat.message
+            recentChatDateLabel.text = longToShortDate(dateString: lastChat.date)
+        }
     }
+}
+
+// TODO: 파일 분리하기
+let longDateFormatter: DateFormatter = {
+    let df = DateFormatter()
+    df.dateFormat = "yyyy-MM-dd hh:mm" // 2024-06-11 09:31
+    return df
+}()
+
+let shortDateFormatter: DateFormatter = {
+    let df = DateFormatter()
+    df.dateFormat = "yy.MM.dd" // 24.06.11
+    return df
+}()
+
+// "2024-06-11 09:31" -> "24.06.11"
+func longToShortDate(dateString: String) -> String {
+    let date = longDateFormatter.date(from: dateString) ?? Date()
+    return shortDateFormatter.string(from: date)
+}
+
+// "24.06.11" -> "2024-06-11 09:31"
+func shortToLongDate(dateString: String) -> String {
+    let date = shortDateFormatter.date(from: dateString) ?? Date()
+    return longDateFormatter.string(from: date)
 }
