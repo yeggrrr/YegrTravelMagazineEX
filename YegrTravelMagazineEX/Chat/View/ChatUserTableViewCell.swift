@@ -12,7 +12,15 @@ class ChatUserTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-     
+        configureUI()
+    }
+    
+    func configureUI() {
+        
+    }
+    
+    func configureCell(chatData: Chat) {
+        
     }
     
 }

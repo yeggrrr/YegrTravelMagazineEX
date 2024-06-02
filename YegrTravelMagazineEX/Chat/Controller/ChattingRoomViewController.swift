@@ -58,11 +58,18 @@ extension ChattingRoomViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if chatData?.chatList[indexPath.row].user != User.user {
             guard let partnerCell = tableView.dequeueReusableCell(withIdentifier: ChatPartnerTableViewCell.identifier, for: indexPath) as? ChatPartnerTableViewCell else { return UITableViewCell() }
-            return partnerCell
+            if let partnerChatData = chatData?.chatList[indexPath.row] {
+                partnerCell.configureCell(chatData: partnerChatData)
+                return partnerCell
+            }
         } else {
             guard let userCell = tableView.dequeueReusableCell(withIdentifier: ChatUserTableViewCell.identifier, for: indexPath) as? ChatUserTableViewCell else { return UITableViewCell() }
-            return userCell
+            if let userChatData = chatData?.chatList[indexPath.row] {
+                userCell.configureCell(chatData: userChatData)
+                return userCell
+            }
         }
+        return UITableViewCell()
     }
     
     
