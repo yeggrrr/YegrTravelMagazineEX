@@ -22,10 +22,17 @@ class ChattingViewController: UIViewController {
         configureTableView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let selectedIndexPath = chattingTableView.indexPathForSelectedRow {
+            chattingTableView.deselectRow(at: selectedIndexPath, animated: animated)
+        }
+    }
+    
     func initializeData() {
         filteredChatRoomList = mockChatList
     }
-
+    
     func navigationUI() {
         navigationItem.title = "YEGR TALK"
     }
@@ -80,7 +87,17 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource {
         let index = indexPath.row
         chattingCell.configureCell(index: index, mockChatList: filteredChatRoomList)
         
+        let bgColorView = UIView()
+        bgColorView.backgroundColor = UIColor(named: "TextFieldBackgroundColor")
+        chattingCell.selectedBackgroundView = bgColorView
+        
         return chattingCell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let sb = UIStoryboard(name: "Chatting", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "ChattingRoomViewController") as! ChattingRoomViewController
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

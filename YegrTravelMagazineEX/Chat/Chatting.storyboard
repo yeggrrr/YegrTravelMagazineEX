@@ -53,6 +53,33 @@
             </objects>
             <point key="canvasLocation" x="140" y="4"/>
         </scene>
+        <!--Chatting Room View Controller-->
+        <scene sceneID="rhF-d4-dPv">
+            <objects>
+                <viewController storyboardIdentifier="ChattingRoomViewController" id="PlT-wE-f3W" customClass="ChattingRoomViewController" customModule="YegrTravelMagazineEX" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JyL-nB-nKR">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="i3x-07-T9G">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Rd-9F-gdd"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="i3x-07-T9G" firstAttribute="leading" secondItem="6Rd-9F-gdd" secondAttribute="leading" id="2Mu-yn-Y32"/>
+                            <constraint firstItem="i3x-07-T9G" firstAttribute="top" secondItem="6Rd-9F-gdd" secondAttribute="top" id="MQc-Hc-svc"/>
+                            <constraint firstItem="6Rd-9F-gdd" firstAttribute="bottom" secondItem="i3x-07-T9G" secondAttribute="bottom" id="pyr-vn-dat"/>
+                            <constraint firstItem="6Rd-9F-gdd" firstAttribute="trailing" secondItem="i3x-07-T9G" secondAttribute="trailing" id="rlH-gu-2Ow"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vHJ-b8-XJt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="903" y="4"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
