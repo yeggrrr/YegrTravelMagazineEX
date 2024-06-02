@@ -43,7 +43,7 @@ class ChattingTableViewCell: UITableViewCell {
         recentChatDateLabel.font = .systemFont(ofSize: 11)
     }
     
-    func configureCell(index: Int) {
+    func configureCell(index: Int, mockChatList: [ChatRoom]) {
         let chatRoom = mockChatList[index]
         let lastChat = chatRoom.chatList.last
         if let lastChat = lastChat {

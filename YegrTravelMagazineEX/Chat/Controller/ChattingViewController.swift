@@ -11,12 +11,19 @@ class ChattingViewController: UIViewController {
     @IBOutlet var chattingSearchBar: UISearchBar!
     @IBOutlet var chattingTableView: UITableView!
     
+    var filteredChatRoomList: [ChatRoom] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        initializeData()
         navigationUI()
         searchBarUI()
         configureTableView()
+    }
+    
+    func initializeData() {
+        filteredChatRoomList = mockChatList
     }
 
     func navigationUI() {
@@ -64,19 +71,33 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return mockChatList.count
+        return filteredChatRoomList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let chattingCell = tableView.dequeueReusableCell(withIdentifier: ChattingTableViewCell.identifier, for: indexPath) as? ChattingTableViewCell else { return UITableViewCell() }
         
         let index = indexPath.row
-        chattingCell.configureCell(index: index)
+        chattingCell.configureCell(index: index, mockChatList: filteredChatRoomList)
         
         return chattingCell
     }
 }
 
-extension ChattingViewController: UISearchBarDelegate {
+extension ChattingViewController: UISearchBarDelegate {    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        view.endEditing(true)
+    }
     
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let text = searchBar.text else { return }
+        
+        if text.isEmpty {
+            initializeData()
+        } else {
+            filteredChatRoomList  = mockChatList.filter { $0.chatroomName.contains(text) }
+            searchBar.text = ""
+        }
+        chattingTableView.reloadData()
+    }
 }
