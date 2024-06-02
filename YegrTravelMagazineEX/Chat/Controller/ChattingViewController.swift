@@ -95,8 +95,11 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let chatData = filteredChatRoomList[indexPath.row]
+        
         let sb = UIStoryboard(name: "Chatting", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "ChattingRoomViewController") as! ChattingRoomViewController
+        vc.chatData = chatData
         navigationController?.pushViewController(vc, animated: true)
     }
 }

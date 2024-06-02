@@ -9,6 +9,8 @@ import UIKit
 
 class ChattingRoomViewController: UIViewController {
 
+    var chatData: ChatRoom?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -16,7 +18,9 @@ class ChattingRoomViewController: UIViewController {
     }
     
     func navigationUI() {
-        navigationItem.title = "partner 이름"
+        guard let chatRoomName = chatData?.chatroomName else { return }
+        navigationItem.title = chatRoomName
+        
         let left = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(xBarButtonClicked))
         navigationItem.leftBarButtonItem = left
         navigationItem.leftBarButtonItem?.tintColor = UIColor(named: "ButtonColor")
