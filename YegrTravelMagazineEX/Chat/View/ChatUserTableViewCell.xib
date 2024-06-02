@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -16,34 +17,52 @@
                 <rect key="frame" x="0.0" y="0.0" width="510" height="119"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wLx-Li-WXl">
-                        <rect key="frame" x="73.333333333333343" y="10" width="426.66666666666663" height="99"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rbg-gP-Qm0">
-                        <rect key="frame" x="21.333333333333329" y="88" width="42" height="21"/>
+                        <rect key="frame" x="16" y="88" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t11-I1-s19">
+                        <rect key="frame" x="68" y="10" width="432" height="99"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="구저쩌구구저쩌구구저쩌구구저쩌구구저쩌구구저쩌구구저쩌구구저쩌구구저쩌구구저쩌구구저쩌구구저쩌구구저쩌구구저쩌구저쩌구구저쩌구구저쩌구구저쩌구구저쩌구구저쩌구구저쩌구구저쩌구구저쩌구구저쩌구구" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wLx-Li-WXl">
+                                <rect key="frame" x="10" y="10" width="412" height="79"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="wLx-Li-WXl" secondAttribute="trailing" constant="10" id="Ijn-nu-4j4"/>
+                            <constraint firstItem="wLx-Li-WXl" firstAttribute="top" secondItem="t11-I1-s19" secondAttribute="top" constant="10" id="jeB-IV-TbC"/>
+                            <constraint firstAttribute="bottom" secondItem="wLx-Li-WXl" secondAttribute="bottom" constant="10" id="vWd-sr-7O9"/>
+                            <constraint firstItem="wLx-Li-WXl" firstAttribute="leading" secondItem="t11-I1-s19" secondAttribute="leading" constant="10" id="xLP-TU-d2C"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="wLx-Li-WXl" firstAttribute="leading" secondItem="Rbg-gP-Qm0" secondAttribute="trailing" constant="10" id="8Eg-bP-27z"/>
+                    <constraint firstAttribute="bottom" secondItem="t11-I1-s19" secondAttribute="bottom" constant="10" id="0Bd-ve-DVk"/>
+                    <constraint firstItem="t11-I1-s19" firstAttribute="leading" secondItem="Rbg-gP-Qm0" secondAttribute="trailing" constant="10" id="3Gt-jR-j3t"/>
+                    <constraint firstItem="t11-I1-s19" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="HNF-sZ-zOQ"/>
                     <constraint firstItem="Rbg-gP-Qm0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="MJu-UL-Uf2"/>
-                    <constraint firstItem="wLx-Li-WXl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Pjn-eA-thP"/>
-                    <constraint firstItem="Rbg-gP-Qm0" firstAttribute="bottom" secondItem="wLx-Li-WXl" secondAttribute="bottom" id="RxL-lv-aYZ"/>
-                    <constraint firstAttribute="bottom" secondItem="wLx-Li-WXl" secondAttribute="bottom" constant="10" id="c8C-2u-QAR"/>
-                    <constraint firstAttribute="trailing" secondItem="wLx-Li-WXl" secondAttribute="trailing" constant="10" id="iQE-HA-6UX"/>
+                    <constraint firstAttribute="trailing" secondItem="t11-I1-s19" secondAttribute="trailing" constant="10" id="YOS-yY-u5C"/>
+                    <constraint firstItem="Rbg-gP-Qm0" firstAttribute="bottom" secondItem="t11-I1-s19" secondAttribute="bottom" id="zhe-ZH-eAE"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="chatContentsLabel" destination="wLx-Li-WXl" id="v7t-PI-hlK"/>
+                <outlet property="chatContentsView" destination="t11-I1-s19" id="h0X-7t-QhV"/>
                 <outlet property="chatDateLabel" destination="Rbg-gP-Qm0" id="EZt-xB-8F8"/>
             </connections>
             <point key="canvasLocation" x="181.67938931297709" y="46.126760563380287"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

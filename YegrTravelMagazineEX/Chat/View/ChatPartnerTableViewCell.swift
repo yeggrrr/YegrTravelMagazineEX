@@ -13,6 +13,7 @@ class ChatPartnerTableViewCell: UITableViewCell {
     
     @IBOutlet var profileImageView: UIImageView!
     @IBOutlet var userNameLabel: UILabel!
+    @IBOutlet var chatContentView: UIView!
     @IBOutlet var chatContentsLabel: UILabel!
     @IBOutlet var chatDateLabel: UILabel!
     
@@ -36,14 +37,14 @@ class ChatPartnerTableViewCell: UITableViewCell {
         userNameLabel.numberOfLines = 1
         userNameLabel.font = .boldSystemFont(ofSize: 15)
         
-        chatContentsLabel.backgroundColor = .clear
+        chatContentView.layer.cornerRadius = 10
+        chatContentView.layer.borderWidth = 1
+        chatContentView.layer.borderColor = UIColor.darkGray.cgColor
+        
         chatContentsLabel.textColor = .label
         chatContentsLabel.textAlignment = .left
         chatContentsLabel.numberOfLines = 0
         chatContentsLabel.font = .systemFont(ofSize: 14)
-        chatContentsLabel.layer.cornerRadius = 1
-        chatContentsLabel.layer.borderWidth = 1
-        chatContentsLabel.layer.borderColor = UIColor.darkGray.cgColor
         
         chatDateLabel.textColor = .systemGray
         chatDateLabel.textAlignment = .right

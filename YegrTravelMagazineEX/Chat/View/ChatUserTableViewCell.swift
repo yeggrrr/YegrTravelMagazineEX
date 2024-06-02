@@ -10,6 +10,7 @@ import UIKit
 class ChatUserTableViewCell: UITableViewCell {
     static let identifier = "ChatUserTableViewCell"
     
+    @IBOutlet var chatContentsView: UIView!
     @IBOutlet var chatContentsLabel: UILabel!
     @IBOutlet var chatDateLabel: UILabel!
     
@@ -19,14 +20,15 @@ class ChatUserTableViewCell: UITableViewCell {
     }
     
     func configureUI() {
-        chatContentsLabel.backgroundColor = UIColor(named: "ChatBackgroundColor")
+        chatContentsView.backgroundColor = UIColor(named: "ChatBackgroundColor")
+        chatContentsView.layer.cornerRadius = 10
+        chatContentsView.layer.borderWidth = 1
+        chatContentsView.layer.borderColor = UIColor.darkGray.cgColor
+        
         chatContentsLabel.textColor = .label
         chatContentsLabel.textAlignment = .right
         chatContentsLabel.numberOfLines = 0
         chatContentsLabel.font = .systemFont(ofSize: 14)
-        chatContentsLabel.layer.cornerRadius = 1
-        chatContentsLabel.layer.borderWidth = 1
-        chatContentsLabel.layer.borderColor = UIColor.darkGray.cgColor
         
         chatDateLabel.textColor = .systemGray
         chatDateLabel.textAlignment = .right
