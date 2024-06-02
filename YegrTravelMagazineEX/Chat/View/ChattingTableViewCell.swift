@@ -11,7 +11,7 @@ class ChattingTableViewCell: UITableViewCell {
     static let identifier = "ChattingTableViewCell"
     
     @IBOutlet var profileImageView: UIImageView!
-    @IBOutlet var nicknameLabel: UILabel!
+    @IBOutlet var chatroomNameLabel: UILabel!
     @IBOutlet var recentChatLabel: UILabel!
     @IBOutlet var recentChatDateLabel: UILabel!
     
@@ -30,9 +30,9 @@ class ChattingTableViewCell: UITableViewCell {
         profileImageView.layer.borderWidth = 2
         profileImageView.layer.borderColor = UIColor.lightGray.cgColor
         
-        nicknameLabel.textAlignment = .left
-        nicknameLabel.textColor = .label
-        nicknameLabel.font = .boldSystemFont(ofSize: 15)
+        chatroomNameLabel.textAlignment = .left
+        chatroomNameLabel.textColor = .label
+        chatroomNameLabel.font = .boldSystemFont(ofSize: 15)
         
         recentChatLabel.textAlignment = .left
         recentChatLabel.textColor = .darkGray
@@ -48,7 +48,7 @@ class ChattingTableViewCell: UITableViewCell {
         let lastChat = chatRoom.chatList.last
         if let lastChat = lastChat {
             profileImageView.image = UIImage(named: chatRoom.chatroomImage[0])
-            nicknameLabel.text = chatRoom.chatroomName
+            chatroomNameLabel.text = chatRoom.chatroomName
             recentChatLabel.text = lastChat.message
             recentChatDateLabel.text = longToShortDate(dateString: lastChat.date)
         }

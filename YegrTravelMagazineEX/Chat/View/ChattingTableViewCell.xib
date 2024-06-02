@@ -62,7 +62,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="nicknameLabel" destination="Cq5-iu-x0F" id="9C5-qC-wUF"/>
+                <outlet property="chatroomNameLabel" destination="Cq5-iu-x0F" id="JPO-EH-IXL"/>
                 <outlet property="profileImageView" destination="2vR-xD-lIG" id="oaR-l8-Suu"/>
                 <outlet property="recentChatDateLabel" destination="yXw-Uc-2ks" id="0Gg-Ov-eOL"/>
                 <outlet property="recentChatLabel" destination="bgv-64-ur7" id="WmF-42-EEI"/>
