@@ -29,14 +29,15 @@ class ChatPartnerTableViewCell: UITableViewCell {
     
     func configureUI() {
         profileImageView.layer.borderWidth = 2
-        profileImageView.layer.borderColor = UIColor.systemGray.cgColor
+        profileImageView.layer.borderColor = UIColor(named: "ButtonColor")?.cgColor
         
         userNameLabel.textColor = .label
         userNameLabel.textAlignment = .left
         userNameLabel.numberOfLines = 1
         userNameLabel.font = .boldSystemFont(ofSize: 15)
         
-        chatContentsLabel.textColor = .darkGray
+        chatContentsLabel.backgroundColor = .clear
+        chatContentsLabel.textColor = .label
         chatContentsLabel.textAlignment = .left
         chatContentsLabel.numberOfLines = 0
         chatContentsLabel.font = .systemFont(ofSize: 14)

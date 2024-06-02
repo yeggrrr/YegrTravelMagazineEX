@@ -28,7 +28,7 @@ class ChattingTableViewCell: UITableViewCell {
     func configureUI() {
         profileImageView.contentMode = .scaleAspectFit
         profileImageView.layer.borderWidth = 2
-        profileImageView.layer.borderColor = UIColor.lightGray.cgColor
+        profileImageView.layer.borderColor = UIColor(named: "ButtonColor")?.cgColor
         
         chatroomNameLabel.textAlignment = .left
         chatroomNameLabel.textColor = .label

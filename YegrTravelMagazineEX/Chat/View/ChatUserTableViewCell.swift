@@ -10,17 +10,34 @@ import UIKit
 class ChatUserTableViewCell: UITableViewCell {
     static let identifier = "ChatUserTableViewCell"
     
+    @IBOutlet var chatContentsLabel: UILabel!
+    @IBOutlet var chatDateLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         configureUI()
     }
     
     func configureUI() {
+        chatContentsLabel.backgroundColor = UIColor(named: "ChatBackgroundColor")
+        chatContentsLabel.textColor = .label
+        chatContentsLabel.textAlignment = .right
+        chatContentsLabel.numberOfLines = 0
+        chatContentsLabel.font = .systemFont(ofSize: 14)
+        chatContentsLabel.layer.cornerRadius = 1
+        chatContentsLabel.layer.borderWidth = 1
+        chatContentsLabel.layer.borderColor = UIColor.darkGray.cgColor
         
+        chatDateLabel.textColor = .systemGray3
+        chatDateLabel.textAlignment = .right
+        chatDateLabel.numberOfLines = 1
+        chatDateLabel.font = .systemFont(ofSize: 12)
+        chatDateLabel.font = .systemFont(ofSize: 12)
     }
     
     func configureCell(chatData: Chat) {
-        
+        chatContentsLabel.text = chatData.message
+        chatDateLabel.text = chatData.date
     }
     
 }
