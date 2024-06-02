@@ -8,7 +8,8 @@
 import UIKit
 
 class ChatUserTableViewCell: UITableViewCell {
-
+    static let identifier = "ChatUserTableViewCell"
+    
     override func awakeFromNib() {
         super.awakeFromNib()
      

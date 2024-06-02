@@ -75,6 +75,9 @@
                             <constraint firstItem="6Rd-9F-gdd" firstAttribute="trailing" secondItem="i3x-07-T9G" secondAttribute="trailing" id="rlH-gu-2Ow"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="chatRoomTableView" destination="i3x-07-T9G" id="HIC-dU-fJu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vHJ-b8-XJt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

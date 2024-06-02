@@ -8,7 +8,8 @@
 import UIKit
 
 class ChatPartnerTableViewCell: UITableViewCell {
-
+    static let identifier = "ChatPartnerTableViewCell"
+    
     override func awakeFromNib() {
         super.awakeFromNib()
  
