@@ -90,13 +90,22 @@ extension ChattingViewController: UISearchBarDelegate {
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let text = searchBar.text else { return }
+        guard let text = searchBar.text?.lowercased() else { return }
         
         if text.isEmpty {
             initializeData()
         } else {
-            filteredChatRoomList  = mockChatList.filter { $0.chatroomName.contains(text) }
+            filteredChatRoomList  = mockChatList.filter { $0.chatroomName.lowercased().contains(text) }
             searchBar.text = ""
+            
+            if filteredChatRoomList.isEmpty {
+                let alert = UIAlertController(title: "🔔알림🔔", message: "검색하신 채팅방이 없어요!", preferredStyle: .alert)
+                let checkButton = UIAlertAction(title: "확인", style: .default)
+                alert.addAction(checkButton)
+                present(alert, animated: true)
+                initializeData()
+                searchBar.text = ""
+            }
         }
         chattingTableView.reloadData()
     }
