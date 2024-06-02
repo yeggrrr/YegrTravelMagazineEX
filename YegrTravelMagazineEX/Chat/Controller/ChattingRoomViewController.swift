@@ -8,21 +8,40 @@
 import UIKit
 
 class ChattingRoomViewController: UIViewController {
-
     @IBOutlet var chatRoomTableView: UITableView!
+    @IBOutlet var keyboardView: UIView!
+    @IBOutlet var inputTextView: UITextView!
+    @IBOutlet var sendButton: UIButton!
     
     var chatData: ChatRoom?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         navigationUI()
+        textFeildUI()
         configureTableView()
+        // setupKeyboardEvent() -> 아직 제대로 작동 안함
+    }
+
+    func textFeildUI() {
+        keyboardView.layer.borderWidth = 2
+        keyboardView.layer.borderColor = UIColor(named: "TextFieldBackgroundColor")?.cgColor
+        
+        inputTextView.backgroundColor = UIColor(named: "TextFieldBackgroundColor")
+        inputTextView.tintColor = .systemGray
+        inputTextView.textColor = .white
+    
+        sendButton.setImage(UIImage(systemName: "paperplane.fill"), for: .normal)
+        sendButton.tintColor = UIColor(named: "ButtonColor")
     }
     
     func configureTableView() {
         chatRoomTableView.delegate = self
         chatRoomTableView.dataSource = self
+        
+        chatRoomTableView.separatorStyle = .none
+        chatRoomTableView.keyboardDismissMode = .onDrag
         
         let partnerXib = UINib(nibName: ChatPartnerTableViewCell.identifier, bundle: nil)
         chatRoomTableView.register(partnerXib, forCellReuseIdentifier: ChatPartnerTableViewCell.identifier)
@@ -39,7 +58,27 @@ class ChattingRoomViewController: UIViewController {
         navigationItem.leftBarButtonItem = left
         navigationItem.leftBarButtonItem?.tintColor = UIColor(named: "ButtonColor")
     }
-    
+
+   //  //observer등록
+   //  func setupKeyboardEvent() {
+   //      NotificationCenter.default.addObserver(self, selector: #selector(textViewMoveUp), name: UIResponder.keyboardWillShowNotification, object: nil)
+   //              
+   //      NotificationCenter.default.addObserver(self, selector: #selector(textViewMoveDown), name: UIResponder.keyboardWillHideNotification, object: nil)
+   //  }
+   //  
+   //  @objc func textViewMoveUp(_ notification: NSNotification){
+   //         
+   //     if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+   //         UIView.animate(withDuration: 0.3, animations: {
+   //             self.chatRoomTableView.transform = CGAffineTransform(translationX: 0, y: -keyboardSize.height)
+   //         })
+   //     }
+   // }
+   //     
+   // @objc func textViewMoveDown(_ notification: NSNotification){
+   //         self.chatRoomTableView.transform = .identity
+   // }
+
     @objc func xBarButtonClicked() {
         navigationController?.popViewController(animated: true)
     }
@@ -71,6 +110,8 @@ extension ChattingRoomViewController: UITableViewDelegate, UITableViewDataSource
         }
         return UITableViewCell()
     }
-    
+}
+
+extension ChattingRoomViewController: UITextViewDelegate {
     
 }

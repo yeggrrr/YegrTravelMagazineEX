@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -62,29 +63,72 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="i3x-07-T9G">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="699"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZPw-84-Nck">
+                                <rect key="frame" x="0.0" y="758" width="393" height="60"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1kf-N5-zKx">
+                                        <rect key="frame" x="15" y="10" width="328" height="40"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W55-Zp-IeX">
+                                        <rect key="frame" x="353" y="15" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="W55-Zp-IeX" secondAttribute="height" multiplier="1:1" id="5MC-Pn-k3b"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal">
+                                            <imageReference key="image" image="paperplane.fill" catalog="system" symbolScale="large"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="W55-Zp-IeX" firstAttribute="centerY" secondItem="ZPw-84-Nck" secondAttribute="centerY" id="0jS-vM-oFm"/>
+                                    <constraint firstAttribute="bottom" secondItem="1kf-N5-zKx" secondAttribute="bottom" constant="10" id="69s-Z1-dEq"/>
+                                    <constraint firstItem="1kf-N5-zKx" firstAttribute="top" secondItem="ZPw-84-Nck" secondAttribute="top" constant="10" id="C7H-X8-L4q"/>
+                                    <constraint firstAttribute="trailing" secondItem="W55-Zp-IeX" secondAttribute="trailing" constant="10" id="Sfb-52-sTV"/>
+                                    <constraint firstItem="1kf-N5-zKx" firstAttribute="leading" secondItem="ZPw-84-Nck" secondAttribute="leading" constant="15" id="j3y-uA-ijH"/>
+                                    <constraint firstAttribute="height" constant="60" id="pMV-rz-w8C"/>
+                                    <constraint firstItem="W55-Zp-IeX" firstAttribute="leading" secondItem="1kf-N5-zKx" secondAttribute="trailing" constant="10" id="sbG-hU-MFo"/>
+                                    <constraint firstItem="W55-Zp-IeX" firstAttribute="height" secondItem="ZPw-84-Nck" secondAttribute="height" multiplier="0.5" id="ykE-0z-lEW"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Rd-9F-gdd"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="i3x-07-T9G" firstAttribute="leading" secondItem="6Rd-9F-gdd" secondAttribute="leading" id="2Mu-yn-Y32"/>
+                            <constraint firstItem="6Rd-9F-gdd" firstAttribute="trailing" secondItem="ZPw-84-Nck" secondAttribute="trailing" id="4u0-5a-2zH"/>
+                            <constraint firstItem="ZPw-84-Nck" firstAttribute="top" secondItem="i3x-07-T9G" secondAttribute="bottom" id="GRZ-ux-5rY"/>
                             <constraint firstItem="i3x-07-T9G" firstAttribute="top" secondItem="6Rd-9F-gdd" secondAttribute="top" id="MQc-Hc-svc"/>
-                            <constraint firstItem="6Rd-9F-gdd" firstAttribute="bottom" secondItem="i3x-07-T9G" secondAttribute="bottom" id="pyr-vn-dat"/>
                             <constraint firstItem="6Rd-9F-gdd" firstAttribute="trailing" secondItem="i3x-07-T9G" secondAttribute="trailing" id="rlH-gu-2Ow"/>
+                            <constraint firstItem="ZPw-84-Nck" firstAttribute="leading" secondItem="6Rd-9F-gdd" secondAttribute="leading" id="wES-rT-VO9"/>
+                            <constraint firstItem="ZPw-84-Nck" firstAttribute="bottom" secondItem="6Rd-9F-gdd" secondAttribute="bottom" id="zKa-Uj-d9W"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="chatRoomTableView" destination="i3x-07-T9G" id="HIC-dU-fJu"/>
+                        <outlet property="inputTextView" destination="1kf-N5-zKx" id="E6N-fg-tW0"/>
+                        <outlet property="keyboardView" destination="ZPw-84-Nck" id="rn6-gC-yzc"/>
+                        <outlet property="sendButton" destination="W55-Zp-IeX" id="BRu-xG-nay"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vHJ-b8-XJt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="903" y="4"/>
+            <point key="canvasLocation" x="901.52671755725191" y="3.5211267605633805"/>
         </scene>
     </scenes>
     <resources>
+        <image name="paperplane.fill" catalog="system" width="128" height="119"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
