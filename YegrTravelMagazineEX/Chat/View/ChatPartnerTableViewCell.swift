@@ -45,7 +45,7 @@ class ChatPartnerTableViewCell: UITableViewCell {
         chatContentsLabel.layer.borderWidth = 1
         chatContentsLabel.layer.borderColor = UIColor.darkGray.cgColor
         
-        chatDateLabel.textColor = .systemGray3
+        chatDateLabel.textColor = .systemGray
         chatDateLabel.textAlignment = .right
         chatDateLabel.numberOfLines = 1
         chatDateLabel.font = .systemFont(ofSize: 12)
