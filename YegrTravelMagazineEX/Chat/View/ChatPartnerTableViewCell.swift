@@ -21,9 +21,9 @@ class ChatPartnerTableViewCell: UITableViewCell {
         super.awakeFromNib()
         configureUI()
     }
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
+    
+    override func layoutIfNeeded() {
+        super.layoutIfNeeded()
         profileImageView.layer.cornerRadius = profileImageView.frame.width / 2
     }
     

@@ -20,8 +20,8 @@ class ChattingTableViewCell: UITableViewCell {
         configureUI()
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
+    override func layoutIfNeeded() {
+        super.layoutIfNeeded()
         profileImageView.layer.cornerRadius = profileImageView.frame.height / 2
     }
     
