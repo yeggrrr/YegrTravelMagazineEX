@@ -48,32 +48,7 @@ class ChattingTableViewCell: UITableViewCell {
             profileImageView.image = UIImage(named: chatRoom.chatroomImage[0])
             chatroomNameLabel.text = chatRoom.chatroomName
             recentChatLabel.text = lastChat.message
-            recentChatDateLabel.text = longToShortDate(dateString: lastChat.date)
+            recentChatDateLabel.text = DateFormatter().longToShortDate(dateString: lastChat.date)
         }
     }
-}
-
-// TODO: 파일 분리하기
-let longDateFormatter: DateFormatter = {
-    let df = DateFormatter()
-    df.dateFormat = "yyyy-MM-dd hh:mm" // 2024-06-11 09:31
-    return df
-}()
-
-let shortDateFormatter: DateFormatter = {
-    let df = DateFormatter()
-    df.dateFormat = "yy.MM.dd" // 24.06.11
-    return df
-}()
-
-// "2024-06-11 09:31" -> "24.06.11"
-func longToShortDate(dateString: String) -> String {
-    let date = longDateFormatter.date(from: dateString) ?? Date()
-    return shortDateFormatter.string(from: date)
-}
-
-// "24.06.11" -> "2024-06-11 09:31"
-func shortToLongDate(dateString: String) -> String {
-    let date = shortDateFormatter.date(from: dateString) ?? Date()
-    return longDateFormatter.string(from: date)
 }

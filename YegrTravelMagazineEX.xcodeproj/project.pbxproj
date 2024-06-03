@@ -17,6 +17,7 @@
 		6843349E2C0ADC4B003AC327 /* Chatting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6843349D2C0ADC4B003AC327 /* Chatting.storyboard */; };
 		685164372C0DC15900268CC1 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685164362C0DC15900268CC1 /* UIColor+.swift */; };
 		685164392C0DC7AF00268CC1 /* ReusableProtocol+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685164382C0DC7AF00268CC1 /* ReusableProtocol+.swift */; };
+		6851643B2C0DD3BE00268CC1 /* DateFormatter+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6851643A2C0DD3BE00268CC1 /* DateFormatter+.swift */; };
 		6876065A2C048C45006BC71C /* AdTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687606582C048C45006BC71C /* AdTableViewCell.swift */; };
 		6876065B2C048C45006BC71C /* AdTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 687606592C048C45006BC71C /* AdTableViewCell.xib */; };
 		68920A512C01BB6A00833D35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68920A502C01BB6A00833D35 /* AppDelegate.swift */; };
@@ -61,6 +62,7 @@
 		6843349D2C0ADC4B003AC327 /* Chatting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chatting.storyboard; sourceTree = "<group>"; };
 		685164362C0DC15900268CC1 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		685164382C0DC7AF00268CC1 /* ReusableProtocol+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReusableProtocol+.swift"; sourceTree = "<group>"; };
+		6851643A2C0DD3BE00268CC1 /* DateFormatter+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+.swift"; sourceTree = "<group>"; };
 		687606582C048C45006BC71C /* AdTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdTableViewCell.swift; sourceTree = "<group>"; };
 		687606592C048C45006BC71C /* AdTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdTableViewCell.xib; sourceTree = "<group>"; };
 		68920A4D2C01BB6A00833D35 /* YegrTravelMagazineEX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YegrTravelMagazineEX.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,6 +116,7 @@
 			children = (
 				685164362C0DC15900268CC1 /* UIColor+.swift */,
 				685164382C0DC7AF00268CC1 /* ReusableProtocol+.swift */,
+				6851643A2C0DD3BE00268CC1 /* DateFormatter+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -452,6 +455,7 @@
 				689A160A2C0C5B0000AE138C /* ChatUserTableViewCell.swift in Sources */,
 				689A16062C0C5AEE00AE138C /* ChatPartnerTableViewCell.swift in Sources */,
 				689A15802C0ADFD800AE138C /* ChattingViewController.swift in Sources */,
+				6851643B2C0DD3BE00268CC1 /* DateFormatter+.swift in Sources */,
 				682EE2482C0472D6006D487A /* PopularCityViewController.swift in Sources */,
 				68920A742C01C17100833D35 /* TravelMagazineTableViewCell.swift in Sources */,
 				68FC2ED02C07287A00BFD7E1 /* City.swift in Sources */,

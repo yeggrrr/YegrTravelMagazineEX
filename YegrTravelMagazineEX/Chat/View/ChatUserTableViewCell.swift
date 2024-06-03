@@ -37,24 +37,6 @@ class ChatUserTableViewCell: UITableViewCell {
     
     func configureCell(chatData: Chat) {
         chatContentsLabel.text = chatData.message
-        chatDateLabel.text = longToShortDate(dateString: chatData.date)
-    }
-    
-    let longDateFormatter: DateFormatter = {
-        let df = DateFormatter()
-        df.dateFormat = "yyyy-MM-dd hh:mm" // 2024-06-11 09:31
-        return df
-    }()
-
-    let shortDateFormatter: DateFormatter = {
-        let df = DateFormatter()
-        df.dateFormat = "hh:mm a" // 09:31 오전
-        return df
-    }()
-
-    // "2024-06-11 09:31" -> "09:31 오전"
-    func longToShortDate(dateString: String) -> String {
-        let date = longDateFormatter.date(from: dateString) ?? Date()
-        return shortDateFormatter.string(from: date)
+        chatDateLabel.text = DateFormatter().longToOnlyTime(dateString: chatData.date)
     }
 }
