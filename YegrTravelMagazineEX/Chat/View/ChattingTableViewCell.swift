@@ -8,8 +8,6 @@
 import UIKit
 
 class ChattingTableViewCell: UITableViewCell {
-    static let identifier = "ChattingTableViewCell"
-    
     @IBOutlet var profileImageView: UIImageView!
     @IBOutlet var chatroomNameLabel: UILabel!
     @IBOutlet var recentChatLabel: UILabel!

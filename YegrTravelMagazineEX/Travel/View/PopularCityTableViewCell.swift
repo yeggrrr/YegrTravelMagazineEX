@@ -8,8 +8,6 @@
 import UIKit
 
 class PopularCityTableViewCell: UITableViewCell {
-    static let identifier = "PopularCityTableViewCell"
-    
     @IBOutlet var detailImageView: UIImageView!
     @IBOutlet var likeButton: UIButton!
     @IBOutlet var titleLabel: UILabel!

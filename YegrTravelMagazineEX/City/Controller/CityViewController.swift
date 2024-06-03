@@ -40,8 +40,8 @@ class CityViewController: UIViewController {
         cityTableView.delegate = self
         cityTableView.dataSource = self
         
-        let cityXib = UINib(nibName: CityTableViewCell.identifier, bundle: nil)
-        cityTableView.register(cityXib, forCellReuseIdentifier: CityTableViewCell.identifier)
+        let cityXib = UINib(nibName: CityTableViewCell.id, bundle: nil)
+        cityTableView.register(cityXib, forCellReuseIdentifier: CityTableViewCell.id)
         
         // noticeLabel
         noticeLabel.isHidden = true
@@ -115,7 +115,7 @@ extension CityViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: CityTableViewCell.identifier, for: indexPath) as? CityTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CityTableViewCell.id, for: indexPath) as? CityTableViewCell else { return UITableViewCell() }
         let data = isFiltered ? filteredDataList[indexPath.row] : cityList[indexPath.row]
         cell.configureCell(data: data)
         return cell

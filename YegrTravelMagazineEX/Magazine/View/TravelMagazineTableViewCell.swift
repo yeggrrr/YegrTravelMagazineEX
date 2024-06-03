@@ -8,8 +8,6 @@
 import UIKit
 
 class MagazineTableViewCell: UITableViewCell {
-    static let identifier = "MagazineTableViewCell"
-    
     @IBOutlet var posterImageView: UIImageView!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var subtitleLabel: UILabel!

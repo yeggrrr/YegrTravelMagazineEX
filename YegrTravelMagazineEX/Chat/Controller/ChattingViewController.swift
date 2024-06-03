@@ -65,8 +65,8 @@ class ChattingViewController: UIViewController {
         chattingTableView.delegate = self
         chattingTableView.dataSource = self
         
-        let chatXib = UINib(nibName: ChattingTableViewCell.identifier, bundle: nil)
-        chattingTableView.register(chatXib, forCellReuseIdentifier: ChattingTableViewCell.identifier)
+        let chatXib = UINib(nibName: ChattingTableViewCell.id, bundle: nil)
+        chattingTableView.register(chatXib, forCellReuseIdentifier: ChattingTableViewCell.id)
         
         chattingTableView.keyboardDismissMode = .onDrag
     }
@@ -82,7 +82,7 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let chattingCell = tableView.dequeueReusableCell(withIdentifier: ChattingTableViewCell.identifier, for: indexPath) as? ChattingTableViewCell else { return UITableViewCell() }
+        guard let chattingCell = tableView.dequeueReusableCell(withIdentifier: ChattingTableViewCell.id, for: indexPath) as? ChattingTableViewCell else { return UITableViewCell() }
         
         let index = indexPath.row
         chattingCell.configureCell(index: index, mockChatList: filteredChatRoomList)

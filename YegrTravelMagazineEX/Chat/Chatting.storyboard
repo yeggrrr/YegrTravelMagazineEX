@@ -63,21 +63,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="i3x-07-T9G">
-                                <rect key="frame" x="0.0" y="59" width="393" height="699"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="704"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZPw-84-Nck">
-                                <rect key="frame" x="0.0" y="758" width="393" height="60"/>
+                                <rect key="frame" x="0.0" y="763" width="393" height="55"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1kf-N5-zKx">
-                                        <rect key="frame" x="15" y="10" width="328" height="40"/>
+                                        <rect key="frame" x="15" y="10" width="330.66666666666669" height="35"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <color key="textColor" systemColor="labelColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W55-Zp-IeX">
-                                        <rect key="frame" x="353" y="15" width="30" height="30"/>
+                                        <rect key="frame" x="355.66666666666669" y="13.666666666666631" width="27.333333333333314" height="27.666666666666671"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="W55-Zp-IeX" secondAttribute="height" multiplier="1:1" id="5MC-Pn-k3b"/>
                                         </constraints>
@@ -94,7 +94,7 @@
                                     <constraint firstItem="1kf-N5-zKx" firstAttribute="top" secondItem="ZPw-84-Nck" secondAttribute="top" constant="10" id="C7H-X8-L4q"/>
                                     <constraint firstAttribute="trailing" secondItem="W55-Zp-IeX" secondAttribute="trailing" constant="10" id="Sfb-52-sTV"/>
                                     <constraint firstItem="1kf-N5-zKx" firstAttribute="leading" secondItem="ZPw-84-Nck" secondAttribute="leading" constant="15" id="j3y-uA-ijH"/>
-                                    <constraint firstAttribute="height" constant="60" id="pMV-rz-w8C"/>
+                                    <constraint firstAttribute="height" constant="55" id="pMV-rz-w8C"/>
                                     <constraint firstItem="W55-Zp-IeX" firstAttribute="leading" secondItem="1kf-N5-zKx" secondAttribute="trailing" constant="10" id="sbG-hU-MFo"/>
                                     <constraint firstItem="W55-Zp-IeX" firstAttribute="height" secondItem="ZPw-84-Nck" secondAttribute="height" multiplier="0.5" id="ykE-0z-lEW"/>
                                 </constraints>

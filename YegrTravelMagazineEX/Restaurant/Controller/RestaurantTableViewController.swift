@@ -114,7 +114,7 @@ extension RestaurantTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: RestaurantTableViewCell.identifier, for: indexPath) as? RestaurantTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: RestaurantTableViewCell.id, for: indexPath) as? RestaurantTableViewCell else { return UITableViewCell() }
         
         let item = searchList[indexPath.row]
         let heartImage = item.like ? UIImage(systemName: "heart.fill") : UIImage(systemName: "heart")

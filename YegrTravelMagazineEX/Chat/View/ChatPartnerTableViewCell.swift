@@ -9,8 +9,6 @@ import UIKit
 import Kingfisher
 
 class ChatPartnerTableViewCell: UITableViewCell {
-    static let identifier = "ChatPartnerTableViewCell"
-    
     @IBOutlet var profileImageView: UIImageView!
     @IBOutlet var userNameLabel: UILabel!
     @IBOutlet var chatContentView: UIView!

@@ -24,11 +24,11 @@ class PopularCityViewController: UIViewController {
     func tableViewConfigure() {
         popularCityTableView.delegate = self
         popularCityTableView.dataSource = self
-        let popularCityCellXib = UINib(nibName: PopularCityTableViewCell.identifier, bundle: nil)
-        popularCityTableView.register(popularCityCellXib, forCellReuseIdentifier: PopularCityTableViewCell.identifier)
+        let popularCityCellXib = UINib(nibName: PopularCityTableViewCell.id, bundle: nil)
+        popularCityTableView.register(popularCityCellXib, forCellReuseIdentifier: PopularCityTableViewCell.id)
         
-        let adCellXib = UINib(nibName: AdTableViewCell.identifier, bundle: nil)
-        popularCityTableView.register(adCellXib, forCellReuseIdentifier: AdTableViewCell.identifier)
+        let adCellXib = UINib(nibName: AdTableViewCell.id, bundle: nil)
+        popularCityTableView.register(adCellXib, forCellReuseIdentifier: AdTableViewCell.id)
     }
 }
 
@@ -50,11 +50,11 @@ extension PopularCityViewController: UITableViewDelegate, UITableViewDataSource 
         let data = TravelInfo.travel[indexPath.row]
         
         if data.ad == true {
-            guard let adTableViewCell = tableView.dequeueReusableCell(withIdentifier: AdTableViewCell.identifier, for: indexPath) as? AdTableViewCell else { return UITableViewCell() }
+            guard let adTableViewCell = tableView.dequeueReusableCell(withIdentifier: AdTableViewCell.id, for: indexPath) as? AdTableViewCell else { return UITableViewCell() }
             adTableViewCell.configureCell(data: data)
             return adTableViewCell
         } else {
-            guard let popularCityTableViewCell = tableView.dequeueReusableCell(withIdentifier: PopularCityTableViewCell.identifier, for: indexPath) as? PopularCityTableViewCell else { return UITableViewCell() }
+            guard let popularCityTableViewCell = tableView.dequeueReusableCell(withIdentifier: PopularCityTableViewCell.id, for: indexPath) as? PopularCityTableViewCell else { return UITableViewCell() }
             popularCityTableViewCell.configureCell(data: data)
             popularCityTableViewCell.likeButton.tag = indexPath.row
             popularCityTableViewCell.likeButton.addTarget(self, action: #selector(likeButtonClicked), for: .touchUpInside)

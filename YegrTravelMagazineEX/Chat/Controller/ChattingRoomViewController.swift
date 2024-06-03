@@ -23,6 +23,8 @@ class ChattingRoomViewController: UIViewController {
         configureTableView()
         // setupKeyboardEvent() -> 아직 제대로 작동 안함
     }
+    
+    //TODO: (10:30 오전) 형태로 시간 바꾸기 / 날짜 바뀌는 시점에 구부선 추가하기 / notificationCenter 활용
 
     func textFeildUI() {
         keyboardView.layer.borderWidth = 2
@@ -43,11 +45,11 @@ class ChattingRoomViewController: UIViewController {
         chatRoomTableView.separatorStyle = .none
         chatRoomTableView.keyboardDismissMode = .onDrag
         
-        let partnerXib = UINib(nibName: ChatPartnerTableViewCell.identifier, bundle: nil)
-        chatRoomTableView.register(partnerXib, forCellReuseIdentifier: ChatPartnerTableViewCell.identifier)
+        let partnerXib = UINib(nibName: ChatPartnerTableViewCell.id, bundle: nil)
+        chatRoomTableView.register(partnerXib, forCellReuseIdentifier: ChatPartnerTableViewCell.id)
         
-        let userXib = UINib(nibName: ChatUserTableViewCell.identifier, bundle: nil)
-        chatRoomTableView.register(userXib, forCellReuseIdentifier: ChatUserTableViewCell.identifier)
+        let userXib = UINib(nibName: ChatUserTableViewCell.id, bundle: nil)
+        chatRoomTableView.register(userXib, forCellReuseIdentifier: ChatUserTableViewCell.id)
     }
     
     func navigationUI() {
@@ -96,15 +98,17 @@ extension ChattingRoomViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if chatData?.chatList[indexPath.row].user != User.user {
-            guard let partnerCell = tableView.dequeueReusableCell(withIdentifier: ChatPartnerTableViewCell.identifier, for: indexPath) as? ChatPartnerTableViewCell else { return UITableViewCell() }
+            guard let partnerCell = tableView.dequeueReusableCell(withIdentifier: ChatPartnerTableViewCell.id, for: indexPath) as? ChatPartnerTableViewCell else { return UITableViewCell() }
             if let partnerChatData = chatData?.chatList[indexPath.row] {
                 partnerCell.configureCell(chatData: partnerChatData)
+                partnerCell.selectionStyle = UITableViewCell.SelectionStyle.none
                 return partnerCell
             }
         } else {
-            guard let userCell = tableView.dequeueReusableCell(withIdentifier: ChatUserTableViewCell.identifier, for: indexPath) as? ChatUserTableViewCell else { return UITableViewCell() }
+            guard let userCell = tableView.dequeueReusableCell(withIdentifier: ChatUserTableViewCell.id, for: indexPath) as? ChatUserTableViewCell else { return UITableViewCell() }
             if let userChatData = chatData?.chatList[indexPath.row] {
                 userCell.configureCell(chatData: userChatData)
+                userCell.selectionStyle = UITableViewCell.SelectionStyle.none
                 return userCell
             }
         }
