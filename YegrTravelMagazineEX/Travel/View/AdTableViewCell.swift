@@ -14,8 +14,6 @@ class AdTableViewCell: UITableViewCell {
     @IBOutlet var adLabel: UILabel!
     @IBOutlet var adBadgeButton: UIButton!
     
-    let randomColor = ["AdBlueColor", "AdPinkColor", "AdGreenColor", "AdPurpleColor", "AdYellowColor"].randomElement()!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         configureUI()
@@ -35,6 +33,6 @@ class AdTableViewCell: UITableViewCell {
     
     func configureCell(data: Travel) {
         adLabel.text = data.title
-        backgoundColorView.backgroundColor = UIColor(named: randomColor)
+        backgoundColorView.backgroundColor = UIColor.random()
     }
 }
