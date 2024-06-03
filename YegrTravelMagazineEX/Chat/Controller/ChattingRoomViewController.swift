@@ -21,10 +21,8 @@ class ChattingRoomViewController: UIViewController {
         navigationUI()
         textFeildUI()
         configureTableView()
-        // setupKeyboardEvent() -> 아직 제대로 작동 안함
+        // setupKeyboardEvent() //-> 아직 제대로 작동 안함
     }
-    
-    //TODO: (10:30 오전) 형태로 시간 바꾸기 / 날짜 바뀌는 시점에 구부선 추가하기 / notificationCenter 활용
 
     func textFeildUI() {
         keyboardView.layer.borderWidth = 2
@@ -50,6 +48,9 @@ class ChattingRoomViewController: UIViewController {
         
         let userXib = UINib(nibName: ChatUserTableViewCell.id, bundle: nil)
         chatRoomTableView.register(userXib, forCellReuseIdentifier: ChatUserTableViewCell.id)
+        
+        let dateXib = UINib(nibName: DateSeparatorTableViewCell.id, bundle: nil)
+        chatRoomTableView.register(dateXib, forCellReuseIdentifier: DateSeparatorTableViewCell.id)
     }
     
     func navigationUI() {
@@ -61,7 +62,7 @@ class ChattingRoomViewController: UIViewController {
         navigationItem.leftBarButtonItem?.tintColor = UIColor(named: "ButtonColor")
     }
 
-   //  //observer등록
+    //observer등록
    //  func setupKeyboardEvent() {
    //      NotificationCenter.default.addObserver(self, selector: #selector(textViewMoveUp), name: UIResponder.keyboardWillShowNotification, object: nil)
    //              
@@ -73,13 +74,15 @@ class ChattingRoomViewController: UIViewController {
    //     if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
    //         UIView.animate(withDuration: 0.3, animations: {
    //             self.chatRoomTableView.transform = CGAffineTransform(translationX: 0, y: -keyboardSize.height)
+   //             self.keyboardView.transform = CGAffineTransform(translationX: 0, y: -keyboardSize.height + 84)
    //         })
    //     }
    // }
-   //     
-   // @objc func textViewMoveDown(_ notification: NSNotification){
-   //         self.chatRoomTableView.transform = .identity
-   // }
+   //  
+   //  @objc func textViewMoveDown(_ notification: NSNotification){
+   //      self.chatRoomTableView.transform = .identity
+   //      self.keyboardView.transform = .identity
+   //  }
 
     @objc func xBarButtonClicked() {
         navigationController?.popViewController(animated: true)
@@ -92,30 +95,41 @@ extension ChattingRoomViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let chatCount = chatData?.chatList.count ?? 0
-        return chatCount
+        guard let chatData = chatData else { return 0 }
+        return chatData.chatList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if chatData?.chatList[indexPath.row].user != User.user {
-            guard let partnerCell = tableView.dequeueReusableCell(withIdentifier: ChatPartnerTableViewCell.id, for: indexPath) as? ChatPartnerTableViewCell else { return UITableViewCell() }
-            if let partnerChatData = chatData?.chatList[indexPath.row] {
-                partnerCell.configureCell(chatData: partnerChatData)
-                partnerCell.selectionStyle = UITableViewCell.SelectionStyle.none
-                return partnerCell
-            }
-        } else {
-            guard let userCell = tableView.dequeueReusableCell(withIdentifier: ChatUserTableViewCell.id, for: indexPath) as? ChatUserTableViewCell else { return UITableViewCell() }
-            if let userChatData = chatData?.chatList[indexPath.row] {
-                userCell.configureCell(chatData: userChatData)
-                userCell.selectionStyle = UITableViewCell.SelectionStyle.none
-                return userCell
+        guard let chatData = chatData else { return UITableViewCell() }
+        let chatList = chatData.chatList
+        let item = chatList[indexPath.row]
+        let notLastIndex = indexPath.row != chatList.count - 1
+        
+        if notLastIndex {
+            let targetDateString = item.date
+            let nextDateString = chatList[indexPath.row + 1].date
+            let targetDate = DateFormatter.longToShortDate(dateString: targetDateString)
+            let nextDate = DateFormatter.longToShortDate(dateString: nextDateString)
+            
+            if targetDate != nextDate {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: DateSeparatorTableViewCell.id, for: indexPath) as? DateSeparatorTableViewCell else { return UITableViewCell() }
+                cell.configureCell(chatData: item)
+                cell.selectionStyle = UITableViewCell.SelectionStyle.none
+                return cell
             }
         }
-        return UITableViewCell()
+        
+        switch chatList[indexPath.row].user {
+        case .user:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: ChatUserTableViewCell.id, for: indexPath) as? ChatUserTableViewCell else { return UITableViewCell() }
+            cell.configureCell(chatData: item)
+            cell.selectionStyle = UITableViewCell.SelectionStyle.none
+            return cell
+        default:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: ChatPartnerTableViewCell.id, for: indexPath) as? ChatPartnerTableViewCell else { return UITableViewCell() }
+            cell.configureCell(chatData: item)
+            cell.selectionStyle = UITableViewCell.SelectionStyle.none
+            return cell
+        }
     }
-}
-
-extension ChattingRoomViewController: UITextViewDelegate {
-    
 }

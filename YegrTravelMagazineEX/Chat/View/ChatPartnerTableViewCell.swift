@@ -15,7 +15,6 @@ class ChatPartnerTableViewCell: UITableViewCell {
     @IBOutlet var chatContentsLabel: UILabel!
     @IBOutlet var chatDateLabel: UILabel!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         configureUI()
@@ -56,6 +55,6 @@ class ChatPartnerTableViewCell: UITableViewCell {
         
         userNameLabel.text = chatData.user.name
         chatContentsLabel.text = chatData.message
-        chatDateLabel.text = DateFormatter().longToOnlyTime(dateString: chatData.date)
+        chatDateLabel.text = DateFormatter.longDateToTime(dateString: chatData.date)
     }
 }

@@ -37,6 +37,6 @@ class ChatUserTableViewCell: UITableViewCell {
     
     func configureCell(chatData: Chat) {
         chatContentsLabel.text = chatData.message
-        chatDateLabel.text = DateFormatter().longToOnlyTime(dateString: chatData.date)
+        chatDateLabel.text = DateFormatter.longDateToTime(dateString: chatData.date)
     }
 }

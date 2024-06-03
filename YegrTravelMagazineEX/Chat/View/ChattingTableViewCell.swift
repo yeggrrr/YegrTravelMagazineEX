@@ -48,7 +48,7 @@ class ChattingTableViewCell: UITableViewCell {
             profileImageView.image = UIImage(named: chatRoom.chatroomImage[0])
             chatroomNameLabel.text = chatRoom.chatroomName
             recentChatLabel.text = lastChat.message
-            recentChatDateLabel.text = DateFormatter().longToShortDate(dateString: lastChat.date)
+            recentChatDateLabel.text = DateFormatter.longToShortDate(dateString: lastChat.date)
         }
     }
 }
