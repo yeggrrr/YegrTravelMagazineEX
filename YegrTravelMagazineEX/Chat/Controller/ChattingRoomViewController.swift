@@ -14,6 +14,7 @@ class ChattingRoomViewController: UIViewController {
     @IBOutlet var sendButton: UIButton!
     
     var chatData: ChatRoom?
+    var chatDataWithSeparator: ChatRoom?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +22,35 @@ class ChattingRoomViewController: UIViewController {
         navigationUI()
         textFeildUI()
         configureTableView()
+        addSeparatorData()
         // setupKeyboardEvent() //-> 아직 제대로 작동 안함
+    }
+    
+    func addSeparatorData() {
+        guard let chatData = chatData else { return }
+        var newChatData = chatData
+        for i in 0..<chatData.chatList.count {
+            if i == chatData.chatList.count - 1 {
+                break // 마지막 채팅은 날짜 비교 필요X
+            }
+            
+            let item = chatData.chatList[i]
+            
+            let targetDateString = item.date
+            let nextDateString = chatData.chatList[i + 1].date
+            let targetDate = DateFormatter.longToShortDate(dateString: targetDateString)
+            let nextDate = DateFormatter.longToShortDate(dateString: nextDateString)
+            
+            if targetDate != nextDate {
+                let separatorChat = Chat(user: .separtor, date: nextDateString, message: "")
+                newChatData.chatList.insert(separatorChat, at: i + 1)
+            }
+        }
+        
+        chatDataWithSeparator = newChatData
+        
+        print("원본    : \(chatData.chatList.map{ $0.user.rawValue })")
+        print("구분자포함: \(newChatData.chatList.map{ $0.user.rawValue })")
     }
 
     func textFeildUI() {
@@ -95,33 +124,23 @@ extension ChattingRoomViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let chatData = chatData else { return 0 }
-        return chatData.chatList.count
+        guard let chatDataWithSeparator = chatDataWithSeparator else { return 0 }
+        return chatDataWithSeparator.chatList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let chatData = chatData else { return UITableViewCell() }
-        let chatList = chatData.chatList
+        guard let chatDataWithSeparator = chatDataWithSeparator else { return UITableViewCell() }
+        let chatList = chatDataWithSeparator.chatList
         let item = chatList[indexPath.row]
-        let notLastIndex = indexPath.row != chatList.count - 1
-        
-        if notLastIndex {
-            let targetDateString = item.date
-            let nextDateString = chatList[indexPath.row + 1].date
-            let targetDate = DateFormatter.longToShortDate(dateString: targetDateString)
-            let nextDate = DateFormatter.longToShortDate(dateString: nextDateString)
-            
-            if targetDate != nextDate {
-                guard let cell = tableView.dequeueReusableCell(withIdentifier: DateSeparatorTableViewCell.id, for: indexPath) as? DateSeparatorTableViewCell else { return UITableViewCell() }
-                cell.configureCell(chatData: item)
-                cell.selectionStyle = UITableViewCell.SelectionStyle.none
-                return cell
-            }
-        }
         
         switch chatList[indexPath.row].user {
         case .user:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: ChatUserTableViewCell.id, for: indexPath) as? ChatUserTableViewCell else { return UITableViewCell() }
+            cell.configureCell(chatData: item)
+            cell.selectionStyle = UITableViewCell.SelectionStyle.none
+            return cell
+        case .separtor:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: DateSeparatorTableViewCell.id, for: indexPath) as? DateSeparatorTableViewCell else { return UITableViewCell() }
             cell.configureCell(chatData: item)
             cell.selectionStyle = UITableViewCell.SelectionStyle.none
             return cell
