@@ -40,6 +40,8 @@ class RestaurantMapViewController: UIViewController {
     var categoryType: CategoryType = .all
     let restaurantList = RestaurantList.restaurantArray
     var restaurantInfo: [Restaurant] = []
+    var locationStatus: CLAuthorizationStatus?
+    var mycoordinate: CLLocationCoordinate2D?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -126,9 +128,21 @@ class RestaurantMapViewController: UIViewController {
     }
     
     @objc func loactionBarButtonClicked() {
-        alert(title: "위치 서비스를 사용할 수 없습니다.", message: "'설정 > 개인정보 보호'에서\n위치 서비스를 켜주세요.(필수권한)", cancelHandler: UIAlertAction(title: "취소", style: .cancel), okHandler: UIAlertAction(title: "설정으로 이동", style: .default, handler: { _ in
-            UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
-        }))
+        guard let locationStatus = locationStatus else { return }
+        switch locationStatus {
+        case .notDetermined, .restricted, .denied:
+            alert(
+                title: "위치 서비스를 사용할 수 없습니다.",
+                message: "'설정 > 개인정보 보호'에서\n위치 서비스를 켜주세요.(필수권한)",
+                cancelHandler: UIAlertAction(title: "취소", style: .cancel),
+                okHandler: UIAlertAction( title: "설정으로 이동", style: .default) { _ in
+                    UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+                }
+            )
+        default:
+            guard let mycoordinate = mycoordinate else { return }
+            setRegionAndAnnotation(center: mycoordinate)
+        }
     }
     
     @objc func segmentValueChanged(segment: UISegmentedControl) {
@@ -155,15 +169,14 @@ extension RestaurantMapViewController {
     }
     
     func checkCurrentLocationAuthorization() {
-        var status = locationManager.authorizationStatus
         
         if #available(iOS 14.0, *) {
-            status = locationManager.authorizationStatus
+            locationStatus = locationManager.authorizationStatus
         } else {
-            status = CLLocationManager.authorizationStatus()
+            locationStatus = CLLocationManager.authorizationStatus()
         }
         
-        switch status {
+        switch locationStatus {
         case .notDetermined:
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
             locationManager.requestWhenInUseAuthorization()
@@ -172,7 +185,7 @@ extension RestaurantMapViewController {
         case .authorizedWhenInUse:
             locationManager.startUpdatingLocation()
         default:
-            print(status)
+            print(#function)
         }
     }
     
@@ -185,8 +198,8 @@ extension RestaurantMapViewController {
 extension RestaurantMapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let coordinate = locations.last?.coordinate {
-            print(coordinate) // 37.650757, 127.056458
             setRegionAndAnnotation(center: coordinate)
+            mycoordinate = coordinate
         }
         
         locationManager.stopUpdatingLocation()
