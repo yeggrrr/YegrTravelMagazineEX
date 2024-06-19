@@ -7,6 +7,7 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 enum CategoryType: Int {
     case all = 0
@@ -22,6 +23,8 @@ enum CategoryType: Int {
 class RestaurantMapViewController: UIViewController {
     @IBOutlet var restaurantMapView: MKMapView!
     @IBOutlet var categorySegmentControl: UISegmentedControl!
+    
+    let locationManager = CLLocationManager()
     
     let categoryList: [(category: String, type: CategoryType)] = [
         ("전체", .all),
@@ -44,23 +47,31 @@ class RestaurantMapViewController: UIViewController {
         navigationUI()
         setSegmentControll()
         setInitialMap()
+        configureLocation()
+        checkCurrentLocationAuthorization()
+    }
+    
+    func configureLocation() {
+        locationManager.delegate = self
+        restaurantMapView.showsUserLocation = true
+        restaurantMapView.setUserTrackingMode(.follow, animated: true)
     }
         
     func navigationUI() {
         navigationController?.navigationBar.tintColor = UIColor(named: "ButtonColor")
         
-        let right = UIBarButtonItem(image: UIImage(systemName: "location.fill"), style: .plain, target: self, action: #selector(filterButtonClicked))
+        let right = UIBarButtonItem(image: UIImage(systemName: "location.fill"), style: .plain, target: self, action: #selector(loactionBarButtonClicked))
         navigationItem.rightBarButtonItem = right
         navigationItem.rightBarButtonItem?.tintColor = UIColor(named: "ButtonColor")
     }
     
-    func CurrentLocation() {
-        let currentLocation = CLLocationCoordinate2D(latitude: 37.517742, longitude: 126.886463)
-        restaurantMapView.region = MKCoordinateRegion(center: currentLocation, latitudinalMeters: 300, longitudinalMeters: 300)
+    func sesacLocation() {
+        let sesacLocation = CLLocationCoordinate2D(latitude: 37.517742, longitude: 126.886463)
+        restaurantMapView.region = MKCoordinateRegion(center: sesacLocation, latitudinalMeters: 300, longitudinalMeters: 300)
         
         let annotation = MKPointAnnotation()
-        annotation.coordinate = currentLocation
-        annotation.title = "내 위치"
+        annotation.coordinate = sesacLocation
+        annotation.title = "SeSAC 영등포 캠퍼스"
         restaurantMapView.addAnnotation(annotation)
         categorySegmentControl.selectedSegmentIndex = 0
     }
@@ -104,8 +115,20 @@ class RestaurantMapViewController: UIViewController {
         }
     }
     
-    @objc func filterButtonClicked() {
-        CurrentLocation()
+    func alert(title: String, message: String, cancelHandler: UIAlertAction, okHandler: UIAlertAction) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okButton = okHandler
+        let cancelButtion = cancelHandler
+        
+        alert.addAction(okButton)
+        alert.addAction(cancelButtion)
+        present(alert, animated: true)
+    }
+    
+    @objc func loactionBarButtonClicked() {
+        alert(title: "위치 서비스를 사용할 수 없습니다.", message: "'설정 > 개인정보 보호'에서\n위치 서비스를 켜주세요.(필수권한)", cancelHandler: UIAlertAction(title: "취소", style: .cancel), okHandler: UIAlertAction(title: "설정으로 이동", style: .default, handler: { _ in
+            UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+        }))
     }
     
     @objc func segmentValueChanged(segment: UISegmentedControl) {
@@ -117,5 +140,68 @@ class RestaurantMapViewController: UIViewController {
         }
         
         updateMap()
+    }
+}
+
+extension RestaurantMapViewController {
+    func checkDeviceLocationAuthorization() {
+        if CLLocationManager.locationServicesEnabled() {
+            checkCurrentLocationAuthorization()
+        } else {
+            alert(title: "위치 서비스가 꺼져 있어서, 위치 권한을 요청할 수 없습니다.", message: "", cancelHandler: UIAlertAction(title: "취소", style: .cancel), okHandler: UIAlertAction(title: "설정으로 이동", style: .default, handler: { _ in
+                UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+            }))
+        }
+    }
+    
+    func checkCurrentLocationAuthorization() {
+        var status = locationManager.authorizationStatus
+        
+        if #available(iOS 14.0, *) {
+            status = locationManager.authorizationStatus
+        } else {
+            status = CLLocationManager.authorizationStatus()
+        }
+        
+        switch status {
+        case .notDetermined:
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.requestWhenInUseAuthorization()
+        case .denied:
+            sesacLocation()
+        case .authorizedWhenInUse:
+            locationManager.startUpdatingLocation()
+        default:
+            print(status)
+        }
+    }
+    
+    func setRegionAndAnnotation(center: CLLocationCoordinate2D) {
+        let region = MKCoordinateRegion(center: center, latitudinalMeters: 300, longitudinalMeters: 300)
+        restaurantMapView.setRegion(region, animated: true)
+    }
+}
+
+extension RestaurantMapViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let coordinate = locations.last?.coordinate {
+            print(coordinate) // 37.650757, 127.056458
+            setRegionAndAnnotation(center: coordinate)
+        }
+        
+        locationManager.stopUpdatingLocation()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {
+        print(#function, "iOS14+")
+    }
+    
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        print(#function, "iOS14-")
+        checkDeviceLocationAuthorization()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        print(#function, "iOS14+")
     }
 }

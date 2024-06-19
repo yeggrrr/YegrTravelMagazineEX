@@ -50,8 +50,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="categorySegmentControl" destination="GGb-gz-DZ4" id="2Bv-ao-5Te"/>
-                        <outlet property="restaurantMapView" destination="woc-up-JMv" id="zAo-Hg-SiE"/>
+                        <outlet property="categorySegmentControl" destination="GGb-gz-DZ4" id="RFG-VG-rSY"/>
+                        <outlet property="restaurantMapView" destination="woc-up-JMv" id="mS2-sg-CrS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

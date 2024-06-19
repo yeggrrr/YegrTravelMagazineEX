@@ -20,6 +20,7 @@
 		6851643B2C0DD3BE00268CC1 /* DateFormatter+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6851643A2C0DD3BE00268CC1 /* DateFormatter+.swift */; };
 		6851643E2C0DD75F00268CC1 /* DateSeparatorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6851643C2C0DD75F00268CC1 /* DateSeparatorTableViewCell.swift */; };
 		6851643F2C0DD75F00268CC1 /* DateSeparatorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6851643D2C0DD75F00268CC1 /* DateSeparatorTableViewCell.xib */; };
+		686051CD2C22C3E500D60EA0 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 686051CC2C22C3E500D60EA0 /* SnapKit */; };
 		6876065A2C048C45006BC71C /* AdTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687606582C048C45006BC71C /* AdTableViewCell.swift */; };
 		6876065B2C048C45006BC71C /* AdTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 687606592C048C45006BC71C /* AdTableViewCell.xib */; };
 		68920A512C01BB6A00833D35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68920A502C01BB6A00833D35 /* AppDelegate.swift */; };
@@ -107,6 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				686051CD2C22C3E500D60EA0 /* SnapKit in Frameworks */,
 				682EE2112C0219D1006D487A /* MarqueeLabel in Frameworks */,
 				68920A782C01D74400833D35 /* Kingfisher in Frameworks */,
 			);
@@ -369,6 +371,7 @@
 			packageProductDependencies = (
 				68920A772C01D74400833D35 /* Kingfisher */,
 				682EE2102C0219D1006D487A /* MarqueeLabel */,
+				686051CC2C22C3E500D60EA0 /* SnapKit */,
 			);
 			productName = YegrTravelMagazineEX;
 			productReference = 68920A4D2C01BB6A00833D35 /* YegrTravelMagazineEX.app */;
@@ -401,6 +404,7 @@
 			packageReferences = (
 				68920A692C01C01100833D35 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				682EE20F2C0219D1006D487A /* XCRemoteSwiftPackageReference "MarqueeLabel" */,
+				686051CB2C22C3E500D60EA0 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 68920A4E2C01BB6A00833D35 /* Products */;
 			projectDirPath = "";
@@ -703,6 +707,14 @@
 				minimumVersion = 4.5.0;
 			};
 		};
+		686051CB2C22C3E500D60EA0 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
 		68920A692C01C01100833D35 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -718,6 +730,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 682EE20F2C0219D1006D487A /* XCRemoteSwiftPackageReference "MarqueeLabel" */;
 			productName = MarqueeLabel;
+		};
+		686051CC2C22C3E500D60EA0 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 686051CB2C22C3E500D60EA0 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
 		};
 		68920A772C01D74400833D35 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
